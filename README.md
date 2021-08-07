@@ -23,7 +23,7 @@ $ rails s
 [https://cacoo.com/diagrams/tstdj2YyHCJipygP/25B29](https://cacoo.com/diagrams/tstdj2YyHCJipygP/25B29)
 
 ## ER図
-<img width="1012" alt="スクリーンショット 2021-08-06 19 24 42" src="https://user-images.githubusercontent.com/83779040/128497072-7ee8fa81-3cd7-4f63-9b0b-509853d39201.png">
+<img width="976" alt="スクリーンショット 2021-08-07 20 33 15" src="https://user-images.githubusercontent.com/83779040/128598821-0d28146f-aaec-468c-9455-e0d81bdbaeb8.png">
 
 ## 画面遷移図
 <img width="1297" alt="スクリーンショット 2021-08-06 19 22 40" src="https://user-images.githubusercontent.com/83779040/128496969-8b836112-0d1e-4315-ab14-143d59779d0d.png">
