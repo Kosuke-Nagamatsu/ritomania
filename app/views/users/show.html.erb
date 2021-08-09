@@ -1,0 +1,11 @@
+<h1><%= "#{@user.name}さんのプロフィール" %></h1>
+<ul>
+  <% if @user.icon.attached? %>
+    <li><%= image_tag @user.icon %></li>
+  <% end %>
+  <li>メールアドレス：<%= "#{@user.email}" %></li>
+  <li>好きな離島：〇〇</li>
+</ul>
+<div>
+  <%= link_to 'プロフィールを編集する', edit_user_registration_path %>
+</div>
