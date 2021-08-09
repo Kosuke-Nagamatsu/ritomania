@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_one_attached :icon
-  validates :title, length: { in: 1..30 }
+  validates :name, length: { in: 1..30 }
   before_create :default_icon
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
