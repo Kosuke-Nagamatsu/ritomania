@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_one_attached :icon
   has_many :posts
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
   validates :name, length: { in: 1..30 }
   before_create :default_icon
   # Include default devise modules. Others available are:
