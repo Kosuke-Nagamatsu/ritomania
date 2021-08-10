@@ -12,6 +12,10 @@
           <li><%= post.content %></li>
           <!-- お気に入り機能エリア -->
         </ul>
+        
+        <ul id="favorite-btn-<%= post.id %>">
+          <%= render partial: 'favorites/favorite', locals: { post: post } %>
+        </ul>
         <%= link_to t('view.show'), post %>
       </div>
 
