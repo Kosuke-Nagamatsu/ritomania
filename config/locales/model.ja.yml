@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+    attributes:
+      post:
+        image: 写真
+        content: 内容
+        prefecture: 都道府県
+      user:
+        name: 名前
+        icon: ユーザアイコン
