@@ -1,12 +1,28 @@
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<div class="">
+  <ul class="">
+    <li>
+      <% if @post.user.icon.attached? %>
+        <%= image_tag @post.user.icon %>
+      <% end %>
+    </li>
+    <li><%= @post.user.name %></li>
+    <li><%= @post.prefecture %></li>
+    <!-- 離島ラベル -->
+  </ul>
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image %>
+  <% end %>
+  <p>
+    <strong>Content:</strong>
+    <%= @post.content %>
+  </p>
+</div>
 
-<p>
-  <strong>Prefecture:</strong>
-  <%= @post.prefecture %>
-</p>
+<%= link_to t('view.edit'), edit_post_path(@post) %>
+<%= link_to t('view.destroy'), post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="">
+  <!-- コメント機能エリア -->
+</div>
+
+<%= link_to t('view.back'), posts_path %>

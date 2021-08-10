@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
 
   <div class="field">
     <%= form.label :content %>
@@ -18,8 +22,10 @@
 
   <div class="field">
     <%= form.label :prefecture %>
-    <%= form.number_field :prefecture %>
+    <%= form.select :prefecture, Post.prefectures.keys %>
   </div>
+
+  <!-- 離島ラベル入力エリア予定 -->
 
   <div class="actions">
     <%= form.submit %>
