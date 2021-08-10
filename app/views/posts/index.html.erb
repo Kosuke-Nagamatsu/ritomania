@@ -12,6 +12,10 @@
           <li><%= post.content %></li>
           <!-- お気に入り機能エリア -->
         </ul>
+        <div id="favorite-btn-<%= post.id %>">
+          <i class="far fa-clock"></i>
+          <%= render partial: 'favorites/favorite', locals: { post: post } %>
+        </div>
         <%= link_to t('view.show'), post %>
       </div>
 
