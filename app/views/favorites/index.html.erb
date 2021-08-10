@@ -1,0 +1,9 @@
+<h1>お気に入り一覧</h1>
+<div>
+  <% @favorites.each do |favorite| %>
+    <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group">
+      <li class="list-group-item"><%= image_tag favorite.post.image %></li>
+      <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
+    </ul>
+  <% end %>
+</div>
