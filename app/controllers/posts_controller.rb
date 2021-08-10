@@ -22,16 +22,20 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = current_user.posts.build(post_params)
-
-    respond_to do |format|
+    if params[:back]
+      render :new
+    else
       if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+        redirect_to posts_path, notice: "新規作成しました！"
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        render :new
       end
     end
+  end
+
+  def confirm
+    @post = current_user.posts.build(post_params)
+    render :new if @post.invalid?
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json
