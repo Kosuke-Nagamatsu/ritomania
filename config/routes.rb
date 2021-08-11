@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post :confirm
     end
     resources :favorites, only: [:create, :destroy]
+    resources :comments
   end
   resources :favorites, only: [:index]
 end
