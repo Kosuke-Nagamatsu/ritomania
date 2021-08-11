@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
+  has_many :comments, dependent: :destroy
+  has_many :comment_posts, through: :comments, source: :post
   validates :name, length: { in: 1..30 }
   before_create :default_icon
   # Include default devise modules. Others available are:
