@@ -2,6 +2,7 @@
 ja:
   view:
     show: 詳細
+    comment: コメント
     edit: 編集
     destroy: 削除
     back: 戻る
