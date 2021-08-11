@@ -21,8 +21,9 @@
 <%= link_to t('view.edit'), edit_post_path(@post) %>
 <%= link_to t('view.destroy'), post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<div class="">
-  <!-- コメント機能エリア -->
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
 </div>
+  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
 
 <%= link_to t('view.back'), posts_path %>
