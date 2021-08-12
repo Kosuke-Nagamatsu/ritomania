@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
+    binding.pry
     @post = current_user.posts.build(post_params)
     render :new if @post.invalid?
   end
