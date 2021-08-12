@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       post: 投稿
       comment: コメント
+      island: 離島
     attributes:
       post:
         image: 写真
@@ -14,3 +15,5 @@ ja:
         icon: ユーザアイコン
       comment:
         content: 内容
+      island:
+        name: 離島名
