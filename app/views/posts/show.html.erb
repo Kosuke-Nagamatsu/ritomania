@@ -7,7 +7,11 @@
     </li>
     <li><%= @post.user.name %></li>
     <li><%= @post.prefecture %></li>
-    <!-- 離島ラベル -->
+    <% if @post.islands.present? %>
+      <% @post.islands.each do |island|%>
+        <li><%= island.name %></li>
+      <% end %>
+    <% end %>
   </ul>
   <% if @post.image.attached? %>
     <%= image_tag @post.image %>
