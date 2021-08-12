@@ -4,8 +4,11 @@ ja:
     show: 詳細
     comment: コメント
     edit: 編集
+    edit_profile: プロフィール編集
     destroy: 削除
     back: 戻る
+    email: メールアドレス
+    favorite_islands: 好きな離島
   activerecord:
     errors:
       messages:

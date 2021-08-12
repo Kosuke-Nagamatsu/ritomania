@@ -1,5 +1,11 @@
 <h2><%= t('.title', resource: resource.model_name.human) %></h2>
 
+<% if current_user.icon.attached? %>
+  <ul>
+    <li><%= image_tag current_user.icon %></li>
+  </ul>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -41,13 +47,14 @@
     <%= f.file_field :icon, autofocus: true, autocomplete: "icon" %>
   </div>
 
+  <div class="field">
+    <%= f.label :island_ids, 'お気に入りの島' %><br />
+    <%= f.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= f.submit t('.update') %>
   </div>
 <% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
 
 <%= link_to t('devise.shared.links.back'), :back %>

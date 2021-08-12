@@ -3,9 +3,14 @@
   <% if @user.icon.attached? %>
     <li><%= image_tag @user.icon %></li>
   <% end %>
-  <li>メールアドレス：<%= "#{@user.email}" %></li>
-  <li>好きな離島：〇〇</li>
-</ul>
+  <li><%= t('view.email') %>：<%= "#{@user.email}" %></li>
+  <% if @user.islands.present? %>
+    <li><%= t('view.favorite_islands') %>：
+    <% @user.islands.each do |island|%>
+      <%= island.name %>
+    <% end %>
+    </li>
+  <% end %>
 <div>
-  <%= link_to 'プロフィールを編集する', edit_user_registration_path %>
+  <%= link_to t('view.edit_profile'), edit_user_registration_path %>
 </div>
