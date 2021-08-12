@@ -5,7 +5,11 @@
           <li><%= image_tag post.user.icon %></li>
           <li><%= post.user.name %></li>
           <li><%= post.prefecture %></li>
-          <!-- 離島ラベル -->
+          <% if post.islands.present? %>
+            <% post.islands.each do |island|%>
+              <li><%= island.name %></li>
+            <% end %>
+          <% end %>
         </ul>
 
         <ul>

@@ -25,7 +25,10 @@
     <%= form.select :prefecture, Post.prefectures.keys %>
   </div>
 
-  <!-- 離島ラベル入力エリア予定 -->
+  <div class="field">
+    <%= form.label '離島名' %>
+    <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
