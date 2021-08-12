@@ -10,6 +10,10 @@
   </p>
   <p><%=  %>:<%= @post.content %></p>
   <p><%=  %>:<%= @post.prefecture %></p>
+  <div class="field">
+    <%= form.label '離島名' %>
+    <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+  </div>
   <%= form.submit "投稿する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
