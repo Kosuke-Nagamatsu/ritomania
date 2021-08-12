@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :comments, dependent: :destroy
   has_many :comment_posts, through: :comments, source: :post
+  has_many :island_favorites, dependent: :destroy
+  has_many :favorite_islands, through: :island_favorites, source: :island
   validates :name, length: { in: 1..30 }
   before_create :default_icon
   # Include default devise modules. Others available are:
