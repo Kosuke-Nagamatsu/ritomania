@@ -41,6 +41,11 @@
     <%= f.file_field :icon, autofocus: true, autocomplete: "icon" %>
   </div>
 
+  <div class="field">
+    <%= f.label :island_ids, 'お気に入りの島' %><br />
+    <%= f.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= f.submit t('.update') %>
   </div>
