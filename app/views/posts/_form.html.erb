@@ -25,7 +25,10 @@
     <%= form.select :prefecture, Post.prefectures.keys %>
   </div>
 
-  <!-- 離島ラベル入力エリア予定 -->
+  <div class="field">
+    <%= form.label '離島名' %>
+    <%= form.collection_select(:island_id, Island.all, :id, :name, prompt: "どこ旅中？") %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
