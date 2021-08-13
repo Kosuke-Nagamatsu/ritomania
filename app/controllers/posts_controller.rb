@@ -1,8 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  # GET /posts or /posts.json
+  before_action :set_q, only: [:index]
+
   def index
-    @posts = Post.all
+    if @q.present?
+      @posts = @q.result
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -62,13 +67,16 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:content, :prefecture, :image, { island_ids: [] })
-    end
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:content, :prefecture, :image, { island_ids: [] })
+  end
 end
