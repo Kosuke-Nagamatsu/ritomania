@@ -5,6 +5,9 @@ ja:
       post: 投稿
       comment: コメント
       island: 離島
+      favorite: お気に入り
+      island_favorite: 好きな離島
+      post_island: 離島ラベル
     attributes:
       post:
         image: 写真
