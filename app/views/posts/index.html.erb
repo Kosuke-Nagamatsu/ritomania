@@ -3,6 +3,8 @@
 <%= search_form_for @q, url: posts_path do |f| %>
   <%= f.label :content_cont, 'キーワード' %>
   <%= f.search_field :content_cont %>
+  <%= f.label :islands_id_eq, '離島名' %>
+  <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: ''} %>
   <%= f.submit '検索' %>
 <% end %>
 
