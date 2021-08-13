@@ -3,10 +3,7 @@ class PostsController < ApplicationController
   before_action :set_q, only: [:index]
 
   def index
-    @posts = Post.all
-    if params[:q].present?
-      @posts = @q.result
-    end
+    @posts = @q.result(distinct: true)
   end
 
   # GET /posts/1 or /posts/1.json
