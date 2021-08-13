@@ -3,10 +3,9 @@ class PostsController < ApplicationController
   before_action :set_q, only: [:index]
 
   def index
-    if @q.present?
+    @posts = Post.all
+    if params[:q].present?
       @posts = @q.result
-    else
-      @posts = Post.all
     end
   end
 

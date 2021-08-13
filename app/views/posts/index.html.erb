@@ -6,6 +6,12 @@
   <%= f.submit '検索' %>
 <% end %>
 
+<%= search_form_for @q, url: posts_path do |f| %>
+  <%= f.label :prefecture_eq, '都道府県' %>
+  <%= f.select :prefecture_eq, Post.prefectures{|key,value| [Post.prefectures[key],value]} %>
+  <%= f.submit '検索' %>
+<% end %>
+
     <% @posts.each do |post| %>
       <div class="">
         <ul class="list-inline">
