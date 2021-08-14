@@ -3,7 +3,7 @@
   <% @favorites.each do |favorite| %>
     <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group">
       <li class="list-group-item">
-        <%= link_to favorite.post.image, "data-lightbox": favorite.post.image do %>
+        <%= link_to favorite.post.image, "data-lightbox": "favorite-image" do %>
           <%= image_tag favorite.post.image, class: "img"%>
         <% end %>
       </li>
