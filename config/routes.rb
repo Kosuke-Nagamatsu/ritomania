@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  root 'tops#index'
   get 'tops/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'comments/create'
-  root 'posts#index'
   devise_for :users
   resources :users, only: [:show]
   resources :posts do
