@@ -9,6 +9,8 @@ ja:
     back: 戻る
     email: メールアドレス
     favorite_islands: 好きな離島
+    sign_up: アカウント登録
+    log_in: ログイン
   activerecord:
     errors:
       messages:
