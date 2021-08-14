@@ -28,7 +28,11 @@
         </ul>
 
         <ul>
-          <li><%= image_tag post.image %></li>
+          <li>
+            <%= link_to post.image, "data-lightbox": post.image do %>
+              <%= image_tag post.image, class: "img"%>
+            <% end %>
+          </li>
           <li><%= post.content %></li>
         </ul>
 
