@@ -2,7 +2,11 @@
 <div>
   <% @favorites.each do |favorite| %>
     <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group">
-      <li class="list-group-item"><%= image_tag favorite.post.image %></li>
+      <li class="list-group-item">
+        <%= link_to favorite.post.image, "data-lightbox": "favorite-image" do %>
+          <%= image_tag favorite.post.image, class: "img"%>
+        <% end %>
+      </li>
       <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
     </ul>
   <% end %>
