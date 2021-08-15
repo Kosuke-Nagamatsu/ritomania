@@ -24,5 +24,6 @@
 <% end %>
 
 <%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post %>
+<%= link_to '管理者ゲストログイン', users_guest_sign_in_path(admin: "true"), method: :post %>
 <%= link_to t('view.back'), tops_index_path %>
 <%= render "devise/shared/links" %>
