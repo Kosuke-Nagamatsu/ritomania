@@ -11,6 +11,7 @@ ja:
     favorite_islands: 好きな離島
     sign_up: アカウント登録
     log_in: ログイン
+    guest_log_in: ゲストログイン
   activerecord:
     errors:
       messages:
