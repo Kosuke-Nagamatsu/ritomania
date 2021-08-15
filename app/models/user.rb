@@ -19,4 +19,10 @@ class User < ApplicationRecord
       self.icon.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_icon.jpg')), filename: 'default_icon.jpg', content_type: 'image/jpg')
     end
   end
+
+  def self.guest
+    find_or_create_by!(email: 'guest-user@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
