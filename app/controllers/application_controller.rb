@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, if: :use_auth?
 
   def after_sign_in_path_for(resource)
-    posts_path(resource)
+    if controller_name == 'sessions'
+      posts_path(resource)
+    else
+      user_path(resource)
+    end
   end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :icon, { island_ids: [] }])
