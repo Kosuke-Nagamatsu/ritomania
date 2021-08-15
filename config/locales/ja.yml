@@ -12,6 +12,7 @@ ja:
     sign_up: アカウント登録
     log_in: ログイン
     guest_log_in: ゲストログイン
+    admin_guest_log_in: 管理者ゲストログイン
   activerecord:
     errors:
       messages:
