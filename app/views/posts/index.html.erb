@@ -19,10 +19,12 @@
         <ul class="list-inline">
           <li><%= image_tag post.user.icon %></li>
           <li><%= post.user.name %></li>
-          <li><%= post.prefecture %></li>
+          <% unless post.prefecture == '--未選択--' %>
+            <li><%= post.prefecture %></li>
+          <% end %>
           <% if post.islands.present? %>
             <% post.islands.each do |island|%>
-              <li><%= island.name %></li>
+              <li><%= link_to island.name, posts_path(island.id, search_island: "true") %></li>
             <% end %>
           <% end %>
         </ul>
