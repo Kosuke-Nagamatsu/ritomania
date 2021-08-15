@@ -9,7 +9,7 @@
     <li><%= @post.prefecture %></li>
     <% if @post.islands.present? %>
       <% @post.islands.each do |island|%>
-        <li><%= island.name %></li>
+        <li><%= link_to island.name, posts_path %></li>
       <% end %>
     <% end %>
   </ul>
