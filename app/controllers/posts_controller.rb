@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = @q.result(distinct: true)
+    if params[:search_island]
+      @posts = Island.find(params[:format]).posts
+    end
   end
 
   # GET /posts/1 or /posts/1.json
