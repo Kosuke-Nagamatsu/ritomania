@@ -17,7 +17,7 @@
     <% @posts.each do |post| %>
       <div class="">
         <ul class="list-inline">
-          <li><%= image_tag post.user.icon %></li>
+          <li><%= image_tag post.user.icon.variant(resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
           <li><%= post.user.name %></li>
           <% unless post.prefecture == '--未選択--' %>
             <li><%= post.prefecture %></li>
@@ -32,7 +32,7 @@
         <ul>
           <li>
             <%= link_to post.image, "data-lightbox": post.image do %>
-              <%= image_tag post.image, class: "img"%>
+              <%= image_tag post.image.variant(resize: '620x760'), class:'' if post.image.attached? %>
             <% end %>
           </li>
           <li><%= post.content %></li>
@@ -52,7 +52,7 @@
 
         <% post.comments.each do |comment| %>
           <ul class="list-inline">
-            <li><%= image_tag comment.user.icon %></li>
+            <li><%= image_tag comment.user.icon.variant(resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %></li>
             <li><%= comment.content %></li>
           </ul>
         <% end %>
