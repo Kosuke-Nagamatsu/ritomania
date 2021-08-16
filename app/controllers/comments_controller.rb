@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
-        flash.now[:notice] = '本文を入力してください'
+        flash.now[:notice] = 'コメントを入力してください'
         format.js { render :index }
       end
     end
@@ -26,8 +26,8 @@ class CommentsController < ApplicationController
           flash.now[:notice] = 'コメントが編集されました'
           format.js { render :index }
         else
-          flash.now[:notice] = 'コメントの編集に失敗しました'
-          format.js { render :edit_error }
+          flash.now[:notice] = 'コメントを入力してください'
+          format.js { render :edit }
         end
       end
   end
