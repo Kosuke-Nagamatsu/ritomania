@@ -1,0 +1,58 @@
+h1 {
+  margin: 0
+}
+.body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+.flexbox-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flexbox-justify-content {
+  display: flex;
+  justify-content: space-around;
+}
+.search-form {
+  width: 400px;
+  margin: 40px 0;
+}
+.contents {
+  width: 520px;
+  margin: 20px 0;
+}
+.main-content {
+  border: 1px solid #d8d7d7;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.sub-content {
+  border-left: 1px solid #d8d7d7;
+  border-bottom: 1px solid #d8d7d7;
+  border-right: 1px solid #d8d7d7;
+}
+.content-space {
+  padding: 20px 10px 10px 10px;
+}
+.comment-content {
+  padding-top: 20px;
+  margin-bottom: 50px;
+  border-left: 1px solid #d8d7d7;
+  border-bottom: 1px solid #d8d7d7;
+  border-right: 1px solid #d8d7d7;
+}
+.comment-space {
+}
+.comment-space p {
+  background-color: #e8e8e8;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 0 10px;
+}
+.main-header {
+  padding: 10px;
+  font-size: 28px;
+  color: #666;
+}
