@@ -1,21 +1,28 @@
 <h1>Posts</h1>
-
-<%= search_form_for @q, url: posts_path do |f| %>
-  <%= f.label :content_cont, 'キーワード' %>
-  <%= f.search_field :content_cont %>
-  <%= f.label :islands_id_eq, '離島名' %>
-  <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: ''} %>
-  <%= f.submit '検索' %>
-<% end %>
-
-<%= search_form_for @q, url: posts_path do |f| %>
-  <%= f.label :prefecture_eq, '都道府県' %>
-  <%= f.select :prefecture_eq, Post.prefectures{|key,value| [Post.prefectures[key],value]} %>
-  <%= f.submit '検索' %>
-<% end %>
-
+<div class="flexbox-center">
+  <div>
+    <div class="form-group search-form">
+      <%= search_form_for @q, url: posts_path do |f| %>
+        <%= f.label :content_cont, 'キーワード' %>
+        <%= f.search_field :content_cont, class: 'form-control' %>
+        <%= f.label :islands_id_eq, '離島名' %>
+        <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control'} %>
+        <%= f.submit '検索', class: 'btn-info' %>
+      <% end %>
+    </div>
+    <div class="form-group search-form">
+      <%= search_form_for @q, url: posts_path do |f| %>
+        <%= f.label :prefecture_eq, '都道府県' %>
+        <%= f.select :prefecture_eq, Post.prefectures{|key,value| [Post.prefectures[key],value]}, {}, {class: 'form-control'} %>
+        <%= f.submit '検索', class: 'btn-info' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="flexbox-center">
+  <div class="content">
     <% @posts.each do |post| %>
-      <div class="">
+      <div class="main-content">
         <ul class="list-inline">
           <li><%= image_tag post.user.icon.variant(resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
           <li><%= post.user.name %></li>
@@ -28,34 +35,43 @@
             <% end %>
           <% end %>
         </ul>
-
-        <ul>
-          <li>
-            <%= link_to post.image, "data-lightbox": post.image do %>
-              <%= image_tag post.image.variant(resize: '620x760'), class:'' if post.image.attached? %>
-            <% end %>
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-top">
+              <%= link_to post.image, "data-lightbox": post.image do %>
+                <%= image_tag post.image.variant(resize: '500x600'), class:'' if post.image.attached? %>
+              <% end %>
+            </div>
+            <div class="media-body">
+              <%= post.content %>
+            </div>
           </li>
-          <li><%= post.content %></li>
         </ul>
-
-        <ul id="favorite-btn-<%= post.id %>">
-          <%= render partial: 'favorites/favorite', locals: { post: post } %>
-        </ul>
-        <ul>
-          <li><%= "コメント#{post.comments.count}件" %></li>
-        </ul>
-
+      </div>
+      <div class="sub-content">
         <ul class="list-inline">
+          <li id="favorite-btn-<%= post.id %>">
+            <%= render partial: 'favorites/favorite', locals: { post: post } %>
+          </li>
+          <li><%= "コメント#{post.comments.count}件" %></li>
           <li><%= link_to t('view.comment'), post %></li>
           <li><%= link_to t('view.show'), post %></li>
         </ul>
-
+      </div>
+      <div class="coment-content">
         <% post.comments.each do |comment| %>
-          <ul class="list-inline">
-            <li><%= image_tag comment.user.icon.variant(resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %></li>
-            <li><%= comment.content %></li>
+          <ul class="media-list">
+            <li class="media">
+              <div class="media-left">
+                <%= image_tag comment.user.icon.variant(resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+              </div>
+              <div class="media-body">
+                <%= comment.content %>
+              </div>
+            </li>
           </ul>
         <% end %>
       </div>
-
     <% end %>
+  </div>
+</div>
