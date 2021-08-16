@@ -29,7 +29,7 @@ class Post < ApplicationRecord
   def image_presence
     unless image.attached?
       image.purge
-      errors.add(:image, 'を選択してください')
+      errors.add(:image, :not_selected)
     end
   end
 end
