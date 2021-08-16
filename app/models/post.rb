@@ -7,6 +7,9 @@ class Post < ApplicationRecord
   has_many :comment_users, through: :comments, source: :user
   has_many :post_islands, dependent: :destroy
   has_many :islands, through: :post_islands, source: :island
+  validates :content, presence: true
+  validates :prefecture, presence: true
+  validate :image_presence
   enum prefecture: {
     "--未選択--":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
@@ -20,5 +23,13 @@ class Post < ApplicationRecord
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
+  end
+
+  private
+  def image_presence
+    unless image.attached?
+      image.purge
+      errors.add(:image, :not_selected)
+    end
   end
 end
