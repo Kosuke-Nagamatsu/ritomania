@@ -1,32 +1,31 @@
 <div class="container">
-  <ul class="list-inline">
-    <li>
-      <%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '80x80').processed, class:'img-circle' if @post.user.icon.attached? %>
-    </li>
-    <li><%= @post.user.name %></li>
-    <% unless @post.prefecture == '--未選択--' %>
-      <li><%= @post.prefecture %></li>
-    <% end %>
-    <% if @post.islands.present? %>
-      <% @post.islands.each do |island|%>
-        <li><%= link_to island.name, posts_path(island.id, search_island: "true") %></li>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-inline">
+        <li><%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '60x60').processed, class:'img-circle' if @post.user.icon.attached? %></li>
+        <li><%= @post.user.name %></li>
+        <li><%= @post.prefecture unless @post.prefecture == '--未選択--' %></li>
+        <% if @post.islands.present? %>
+          <% @post.islands.each do |island|%>
+            <li><%= link_to island.name, posts_path(island.id, search_island: "true") %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= image_tag @post.image.variant(gravity: 'Center', resize: '500x600').processed, class:'' if @post.image.attached? %>
+      <p class=""><%= @post.content %></p>
+      <% if @post.user == current_user %>
+        <ul class="list-inline">
+          <li><%= link_to t('view.edit'), edit_post_path(@post) %></li>
+          <li><%= link_to t('view.destroy'), post_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
       <% end %>
-    <% end %>
-  </ul>
-  <%= image_tag @post.image.variant(gravity: 'Center', resize: '600x700').processed, class:'' if @post.image.attached? %>
-  <p>
-    <strong>Content:</strong>
-    <%= @post.content %>
-  </p>
+    </div>
+    <div class="right-wrapper col-md-offset-1 col-md-5">
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+      </div>
+        <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+    </div>
+  </div>
+  <span><%= link_to t('view.back'), posts_path %></span>
 </div>
-<% if @post.user == current_user %>
-  <%= link_to t('view.edit'), edit_post_path(@post) %>
-  <%= link_to t('view.destroy'), post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
-</div>
-  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-
-<%= link_to t('view.back'), posts_path %>
