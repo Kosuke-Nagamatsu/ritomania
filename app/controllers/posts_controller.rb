@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    redirect_to posts_path unless @post.user == current_user
   end
 
   # POST /posts or /posts.json
