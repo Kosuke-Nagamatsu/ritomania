@@ -55,7 +55,9 @@
               <%= render partial: 'favorites/favorite', locals: { post: post } %>
             </li>
             <li><%= "コメント#{post.comments.count}件" %></li>
-            <li><%= link_to t('view.comment'), post %></li>
+            <% unless post.user == current_user %>
+              <li><%= link_to t('view.comment'), post %></li>
+            <% end %>
             <li><%= link_to t('view.show'), post %></li>
           </ul>
         </div>
