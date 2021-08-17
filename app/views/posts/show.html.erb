@@ -1,9 +1,7 @@
-<div class="">
-  <ul class="">
+<div class="container">
+  <ul class="list-inline">
     <li>
-      <% if @post.user.icon.attached? %>
-        <%= image_tag @post.user.icon %>
-      <% end %>
+      <%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '80x80').processed, class:'img-circle' if @post.user.icon.attached? %>
     </li>
     <li><%= @post.user.name %></li>
     <% unless @post.prefecture == '--未選択--' %>
@@ -15,9 +13,7 @@
       <% end %>
     <% end %>
   </ul>
-  <% if @post.image.attached? %>
-    <%= image_tag @post.image %>
-  <% end %>
+  <%= image_tag @post.image.variant(gravity: 'Center', resize: '600x700').processed, class:'' if @post.image.attached? %>
   <p>
     <strong>Content:</strong>
     <%= @post.content %>
