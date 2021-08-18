@@ -1,5 +1,9 @@
-h1 {
+// 共通
+h1, h2 {
   margin: 0
+}
+ul {
+  list-style: none;
 }
 .body {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -15,6 +19,8 @@ h1 {
   display: flex;
   justify-content: space-around;
 }
+
+// 投稿一覧ページ
 .search-form {
   width: 400px;
   margin: 40px 0;
@@ -25,8 +31,11 @@ h1 {
 }
 .main-content {
   border: 1px solid #d8d7d7;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
+}
+.main-image {
+  width: 100%;
+  height: auto;
 }
 .sub-content {
   border-left: 1px solid #d8d7d7;
@@ -55,4 +64,23 @@ h1 {
   padding: 10px;
   font-size: 28px;
   color: #666;
+}
+
+// 投稿詳細ページ
+.show-content {
+  padding: 10px 10px 10px 10px;
+  border: 2px solid #e8e8e8;
+  border-radius: 30px;
+}
+.items {
+  padding-top: 10px;
+}
+.right-wrapper {
+  margin-top: 30px;
+}
+#comments_area {
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 1px solid #d8d7d7;
 }

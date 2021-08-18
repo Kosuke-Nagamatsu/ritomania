@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   def index
     @q.sorts = 'created_at desc'
     @posts = @q.result(distinct: true)
-    binding.pry
     if params[:search_island]
       @posts = Island.find(params[:format]).posts
     end
