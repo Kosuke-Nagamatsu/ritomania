@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <ul class="list-inline">
+    <div class="col-md-5">
+      <%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500').processed, class:'main-image' if @post.image.attached? %>
+      <ul class="list-inline items">
         <li><%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '60x60').processed, class:'img-circle' if @post.user.icon.attached? %></li>
-        <li><%= @post.user.name %></li>
+        <li><%= "#{@post.user.name}さん" %></li>
         <li><%= @post.prefecture unless @post.prefecture == '--未選択--' %></li>
         <% if @post.islands.present? %>
           <% @post.islands.each do |island|%>
-            <li><%= link_to island.name, posts_path(island.id, search_island: "true") %></li>
+            <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
           <% end %>
         <% end %>
       </ul>
-      <%= image_tag @post.image.variant(gravity: 'Center', resize: '500x600').processed, class:'' if @post.image.attached? %>
-      <p class=""><%= @post.content %></p>
+      <p class="show-content"><%= @post.content %></p>
       <% if @post.user == current_user %>
         <ul class="list-inline">
           <li><%= link_to t('view.edit'), edit_post_path(@post) %></li>
@@ -20,7 +20,8 @@
         </ul>
       <% end %>
     </div>
-    <div class="right-wrapper col-md-offset-1 col-md-5">
+    <div class="right-wrapper col-md-offset-1 col-md-6">
+      <h2>コメントしてみよう！</h2>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
       </div>

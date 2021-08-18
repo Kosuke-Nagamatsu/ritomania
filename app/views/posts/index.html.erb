@@ -24,7 +24,7 @@
     <div class="contents">
       <% @posts.each do |post| %>
         <div class="main-content">
-          <ul class="list-inline">
+          <ul class="list-inline items">
             <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60').processed, class:'img-circle' if post.user.icon.attached? %></li>
             <li><%= post.user.name %></li>
             <% unless post.prefecture == '--未選択--' %>
