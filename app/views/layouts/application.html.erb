@@ -56,6 +56,9 @@
       <%= yield %>
     </div>
     <footer>
+      <% if user_signed_in? %>
+        <p>テストです</p>
+      <% end %>
     </footer>
   </body>
 </html>
