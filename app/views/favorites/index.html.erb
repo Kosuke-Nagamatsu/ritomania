@@ -1,13 +1,15 @@
 <h1>お気に入り一覧</h1>
-<div>
+<div class="container">
   <% @favorites.each do |favorite| %>
     <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group">
       <li class="list-group-item">
         <%= link_to favorite.post.image, "data-lightbox": "favorite-image" do %>
-          <%= image_tag favorite.post.image, class: "img"%>
+          <%= image_tag favorite.post.image.variant(gravity: 'Center', resize: '300x400').processed, class:'' if favorite.post.image.attached? %>
         <% end %>
       </li>
-      <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
+      <li class="list-group-item">
+        <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
+      </li>
     </ul>
   <% end %>
 </div>
