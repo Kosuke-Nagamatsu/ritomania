@@ -12,10 +12,9 @@ ul {
 }
 .flexbox-center {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
-.flexbox-justify-content {
+.flexbox-space-around {
   display: flex;
   justify-content: space-around;
 }
