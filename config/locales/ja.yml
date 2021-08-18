@@ -19,6 +19,7 @@ ja:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
+        prohibited_this_model_from_being_saved: "件のエラーが発生したため投稿されませんでした。"
         not_selected: を選択してください
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
