@@ -1,19 +1,20 @@
-<h3>以下の内容で、送信する。</h3>
-<%= form_with(model: @post, local: true, url: posts_path) do |form| %>
-  <%= form.hidden_field :image, value: form.object.image.signed_id %>
-  <%= form.hidden_field :content %>
-  <%= form.hidden_field :prefecture %>
-  <p><%=  %>:
+<div class="container flexbox-center">
+ <div class="contents">
+  <h3>以下の内容で、送信する。</h3>
+  <%= form_with(model: @post, local: true, url: posts_path) do |form| %>
+    <%= form.hidden_field :image, value: form.object.image.signed_id %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :prefecture %>
     <% if @post.image.attached? %>
-      <%= image_tag @post.image %>
+      <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500').processed, class: "main-image" %></p>
     <% end %>
-  </p>
-  <p><%=  %>:<%= @post.content %></p>
-  <p><%=  %>:<%= @post.prefecture %></p>
-  <div class="field">
+    <p><b>本文：</b><%= @post.content %></p>
+    <p><b>都道府県：</b><%= @post.prefecture %></p>
     <%= form.label '離島名' %>
     <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+    <div class="actions">
+      <%= form.submit t('view.back'), name: 'back' %><%= form.submit t('view.post_to') %>
+    </div>
+  <% end %>
   </div>
-  <%= form.submit "投稿する" %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+</div>
