@@ -18,6 +18,13 @@ ul {
   display: flex;
   justify-content: space-around;
 }
+.flexbox-container-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
 
 // 投稿一覧ページ
 .search-form {
@@ -84,4 +91,9 @@ ul {
   border: 1px solid #d8d7d7;
   height: 600px;
   overflow-y: auto;
+}
+
+// 投稿新規・編集ページ
+.field {
+  padding: 15px 0;
 }

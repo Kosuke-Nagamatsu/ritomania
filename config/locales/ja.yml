@@ -15,6 +15,7 @@ ja:
     log_in: ログイン
     guest_log_in: ゲストログイン
     admin_guest_log_in: 管理者ゲストログイン
+    post_to: 投稿する
   activerecord:
     errors:
       messages:

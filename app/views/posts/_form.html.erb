@@ -1,36 +1,37 @@
-<%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, t('activerecord.errors.messages.prohibited_this_model_from_being_saved')) %></h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="form-group flexbox-container-vertical-center">
+  <%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, t('activerecord.errors.messages.prohibited_this_model_from_being_saved')) %></h2>
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :prefecture %>
+      <%= form.select :prefecture, Post.prefectures.keys, {}, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label '離島名' %>
+      <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name, class: "form-control") %>
+    </div>
+    <div class="actions">
+      <% if action_name == "new" %>
+        <%= form.submit t('view.post_to') %>
+      <% else %>
+        <%= form.submit %>
       <% end %>
-      </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :prefecture %>
-    <%= form.select :prefecture, Post.prefectures.keys %>
-  </div>
-
-  <div class="field">
-    <%= form.label '離島名' %>
-    <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
