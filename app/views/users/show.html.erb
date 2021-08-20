@@ -7,7 +7,7 @@
       <% if @user.islands.present? %>
         <li class="list-group-item"><%= t('view.favorite_islands') %>：
           <% @user.islands.each do |island|%>
-            <%= island.name %>
+            <%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
           <% end %>
         </li>
       <% end %>
