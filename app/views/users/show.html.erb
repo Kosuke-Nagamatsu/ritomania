@@ -2,7 +2,7 @@
   <div>
     <h1 class="user-header"><%= "#{@user.name}さんのプロフィール" %></h1>
     <ul class="list-group">
-      <li class="list-group-item list-icon"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '300x300').processed, class:'img-circle' if @user.icon.attached? %></li>
+      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '300x300').processed, class:'img-circle' if @user.icon.attached? %></li>
       <li class="list-group-item"><%= t('view.email') %>：<%= "#{@user.email}" %></li>
       <% if @user.islands.present? %>
         <li class="list-group-item"><%= t('view.favorite_islands') %>：
