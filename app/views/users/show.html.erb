@@ -1,16 +1,17 @@
-<h1><%= "#{@user.name}さんのプロフィール" %></h1>
-<ul>
-  <% if @user.icon.attached? %>
-    <li><%= image_tag @user.icon %></li>
-  <% end %>
-  <li><%= t('view.email') %>：<%= "#{@user.email}" %></li>
-  <% if @user.islands.present? %>
-    <li><%= t('view.favorite_islands') %>：
-    <% @user.islands.each do |island|%>
-      <%= island.name %>
-    <% end %>
-    </li>
-  <% end %>
-<div>
-  <%= link_to t('view.edit_profile'), edit_user_registration_path %>
+<div class="container flexbox-container-vertical-center">
+  <div>
+    <h1 class="user-header"><%= "#{@user.name}さんのプロフィール" %></h1>
+    <ul class="list-group">
+      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '300x300').processed, class:'img-circle' if @user.icon.attached? %></li>
+      <li class="list-group-item"><%= t('view.email') %>：<%= "#{@user.email}" %></li>
+      <% if @user.islands.present? %>
+        <li class="list-group-item"><%= t('view.favorite_islands') %>：
+          <% @user.islands.each do |island|%>
+            <%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="list-group-item"><%= link_to t('view.edit_profile'), edit_user_registration_path %></li>
+    </ul>
+  </div>
 </div>
