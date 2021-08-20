@@ -27,7 +27,11 @@
       <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name, class: "form-control") %>
     </div>
     <div class="actions">
-      <%= form.submit t('view.post_to') %>
+      <% if action_name == "new" %>
+        <%= form.submit t('view.post_to') %>
+      <% else %>
+        <%= form.submit %>
+      <% end %>
     </div>
   <% end %>
 </div>
