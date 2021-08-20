@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500').processed, class:'main-image' if @post.image.attached? %>
+      <%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class:'main-image' if @post.image.attached? %>
       <ul class="list-inline items">
-        <li><%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '60x60').processed, class:'img-circle' if @post.user.icon.attached? %></li>
+        <li><%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if @post.user.icon.attached? %></li>
         <li><%= "#{@post.user.name}さん" %></li>
         <li><%= @post.prefecture unless @post.prefecture == '--未選択--' %></li>
         <% if @post.islands.present? %>
