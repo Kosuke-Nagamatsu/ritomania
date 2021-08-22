@@ -5,10 +5,14 @@ h1, h2 {
 ul {
   list-style: none;
 }
-.body {
+html {
+  height: 100%;
+}
+body {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 1.5em;
   line-height: 18px;
+  height: 100%;
   margin: 0px;
   overflow: hidden;
 }
@@ -125,11 +129,7 @@ footer p {
   height: 600px;
   overflow-y: auto;
 }
-
 // 投稿新規・編集ページ
-// .field {
-//   padding: 15px 0;
-// }
 .actions {
   margin: 10px 0;
 }
