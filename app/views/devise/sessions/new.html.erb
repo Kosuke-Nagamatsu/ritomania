@@ -1,15 +1,15 @@
 <div class="background-box">
   <div class="container flexbox-center">
     <div>
-      <h2><%= t('.sign_in') %></h2>
+      <h2 class= "account-session-header text-center"><%= t('.sign_in') %></h2>
       <div class="form-group account-session-form">
         <h3 class="text-center">離島マニア</h3>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control input-field" %>
           </div>
           <div class="field">
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control input-field" %>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="field">
@@ -17,15 +17,17 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
-          <div class="actions">
-            <%= f.submit t('.sign_in') %>
+          <div class="actions flexbox-center">
+            <%= f.submit t('.sign_in'), class: "btn btn-default btn-custom" %>
           </div>
         <% end %>
       </div>
       <ul class="flexbox-space-around">
-        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post %></li>
-        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post %></li>
-        <li><%= link_to t('view.back'), tops_index_path %></li>
+        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-default btn-custom" %></li>
+        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-default btn-custom" %></li>
+      </ul><br><br>
+      <ul class="flexbox-space-around">
+        <li><%= link_to t('view.back'), tops_index_path, class: "btn btn-default btn-custom" %></li>
         <li><%= render "devise/shared/links" %></li>
       </ul>
     </div>
