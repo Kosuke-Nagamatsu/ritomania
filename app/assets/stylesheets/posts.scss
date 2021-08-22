@@ -5,10 +5,26 @@ h1, h2 {
 ul {
   list-style: none;
 }
-.body {
+html {
+  height: 100%;
+}
+body {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 1.5em;
   line-height: 18px;
+  height: 100%;
+  margin: 0px;
+  overflow: hidden;
+}
+.container-fixed {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.main {
+  flex: 1;
+  overflow-y: scroll;
 }
 .flexbox-center {
   display: flex;
@@ -31,6 +47,20 @@ ul {
 }
 .text-center {
   text-align: center;
+}
+.navbar-custom {
+  margin: 0;
+}
+footer {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: table;
+}
+footer p {
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
 }
 
 // 投稿一覧ページ
@@ -99,11 +129,7 @@ ul {
   height: 600px;
   overflow-y: auto;
 }
-
 // 投稿新規・編集ページ
-// .field {
-//   padding: 15px 0;
-// }
 .actions {
   margin: 10px 0;
 }
