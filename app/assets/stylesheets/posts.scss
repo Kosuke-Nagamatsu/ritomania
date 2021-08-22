@@ -47,6 +47,17 @@ ul {
 .navbar-custom {
   margin: 0;
 }
+footer {
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: table;
+}
+footer p {
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
 
 // 投稿一覧ページ
 .search-form {
