@@ -11,7 +11,7 @@ ja:
     back: 戻る
     email: メールアドレス
     password: パスワード
-    confirm_password: パスワード確認
+    password_confirmation: パスワード確認
     favorite_islands: 好きな離島
     sign_up: アカウント登録
     log_in: ログイン
