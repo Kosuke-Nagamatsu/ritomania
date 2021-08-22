@@ -1,26 +1,26 @@
-<div class="">
-  <div class="container">
+<div class="background-box">
+  <div class="container flexbox-center">
     <div>
-      <h2><%= t('.sign_up') %></h2>
-      <div class="user-account-session-form">
-        <h3>離島マニア</h3>
+      <h2 class= "account-session-header"><%= t('.sign_up') %></h2>
+      <div class="form-group account-session-form">
+        <h3 class="text-center">離島マニア</h3>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field">
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム", class: "form-control input-field" %>
           </div>
           <div class="field">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control input-field" %>
           </div>
           <div class="field">
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "form-control input-field" %>
             <% if @minimum_password_length %>
               <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
             <% end %><br />
           </div>
           <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
-          </div>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "form-control input-field" %>
+          </div><br>
           <div class="field">
             <%= f.label :icon %><br />
             <%= f.file_field :icon, autofocus: true, autocomplete: "icon" %>
@@ -28,14 +28,16 @@
           <div class="field">
             <%= f.label :island_ids, 'お気に入りの島' %><br />
             <%= f.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
-          </div>
-          <div class="actions">
-            <%= f.submit t('.sign_up') %>
+          </div><br>
+          <div class="actions flexbox-center">
+            <%= f.submit t('.sign_up'), class: "btn btn-default btn-custom" %>
           </div>
         <% end %>
       </div>
-      <%= link_to t('view.back'), tops_index_path %>
-      <%= render "devise/shared/links" %>
+      <ul class="flexbox-space-around">
+        <li><%= link_to t('view.back'), tops_index_path, class: "btn btn-default btn-custom" %></li>
+        <li><%= render "devise/shared/links" %></li>
+      </ul>
     </div>
   </div>
 </div>
