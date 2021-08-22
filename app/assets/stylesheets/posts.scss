@@ -9,6 +9,18 @@ ul {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin: 0px;
+  overflow: hidden;
+}
+.container-fixed {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.main {
+  flex: 1;
+  overflow-y: scroll;
 }
 .flexbox-center {
   display: flex;
