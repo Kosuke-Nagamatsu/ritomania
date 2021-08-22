@@ -6,7 +6,7 @@
     <%= form.hidden_field :content %>
     <%= form.hidden_field :prefecture %>
     <% if @post.image.attached? %>
-      <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500').processed, class: "main-image" %></p>
+      <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class: "main-image" %></p>
     <% end %>
     <p><b>本文：</b><%= @post.content %></p>
     <p><b>都道府県：</b><%= @post.prefecture %></p>

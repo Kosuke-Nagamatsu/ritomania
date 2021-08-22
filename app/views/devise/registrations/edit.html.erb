@@ -2,7 +2,7 @@
   <div class="user-edit-form">
     <h2 class="user-header"><%= t('.title', resource: resource.model_name.human) %></h2>
     <ul>
-      <li class="text-center"><%= image_tag current_user.icon.variant(gravity: 'Center', resize: '300x300').processed, class:'img-circle' if current_user.icon.attached? %></li>
+      <li class="text-center"><%= image_tag current_user.icon.variant(gravity: 'Center', resize: '300x300'), class:'img-circle' if current_user.icon.attached? %></li>
     </ul>
     <div class="form-group">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
