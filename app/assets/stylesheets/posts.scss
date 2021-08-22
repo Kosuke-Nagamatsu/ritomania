@@ -18,12 +18,19 @@ ul {
   display: flex;
   justify-content: space-around;
 }
+.flexbox-space-between {
+  display: flex;
+  justify-content:space-between;
+}
 .flexbox-container-vertical-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
+}
+.text-center {
+  text-align: center;
 }
 
 // 投稿一覧ページ

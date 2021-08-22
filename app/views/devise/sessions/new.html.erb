@@ -1,29 +1,35 @@
-<h2><%= t('.sign_in') %></h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="background-box">
+  <div class="container flexbox-center">
+    <div>
+      <h2 class= "account-session-header text-center"><%= t('.sign_in') %></h2>
+      <div class="form-group account-session-form">
+        <h3 class="text-center">離島マニア</h3>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('view.email'), class: "form-control input-field" %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: t('view.password'), class: "form-control input-field" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+          <div class="actions flexbox-center">
+            <%= f.submit t('.sign_in'), class: "btn btn-default btn-custom" %>
+          </div>
+        <% end %>
+      </div>
+      <ul class="flexbox-space-around">
+        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-default btn-custom" %></li>
+        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-default btn-custom" %></li>
+      </ul><br><br>
+      <ul class="flexbox-space-around">
+        <li><%= link_to t('view.back'), tops_index_path, class: "btn btn-default btn-custom" %></li>
+        <li><%= render "devise/shared/links" %></li>
+      </ul>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
   </div>
-<% end %>
-
-<%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post %>
-<%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post %>
-<%= link_to t('view.back'), tops_index_path %>
-<%= render "devise/shared/links" %>
+</div>
