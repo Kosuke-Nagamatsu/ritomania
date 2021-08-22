@@ -6,10 +6,10 @@
         <h3 class="text-center">離島マニア</h3>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control input-field" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('view.email'), class: "form-control input-field" %>
           </div>
           <div class="field">
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control input-field" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: t('view.password'), class: "form-control input-field" %>
           </div>
           <% if devise_mapping.rememberable? %>
             <div class="field">

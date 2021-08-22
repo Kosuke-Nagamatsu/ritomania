@@ -10,12 +10,15 @@ ja:
     destroy_comment: コメント削除
     back: 戻る
     email: メールアドレス
+    password: パスワード
+    confirm_password: パスワード確認
     favorite_islands: 好きな離島
     sign_up: アカウント登録
     log_in: ログイン
     guest_log_in: ゲストログイン
     admin_guest_log_in: 管理者ゲストログイン
     post_to: 投稿する
+    user_name: ユーザーネーム
   activerecord:
     errors:
       messages:
