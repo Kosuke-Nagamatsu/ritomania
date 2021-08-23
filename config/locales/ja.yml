@@ -19,6 +19,7 @@ ja:
     admin_guest_log_in: 管理者ゲストログイン
     post_to: 投稿する
     user_name: ユーザーネーム
+    all_comments: すべてのコメントを見る
   activerecord:
     errors:
       messages:
