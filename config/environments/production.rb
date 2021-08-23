@@ -22,6 +22,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.action_mailer.default_url_options = { host: 'https://limitless-beyond-47766.herokuapp.com/' }
+  config.action_mailer.delivery_method = :letter_opener_web
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
