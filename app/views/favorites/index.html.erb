@@ -1,13 +1,26 @@
-<h1>お気に入り一覧</h1>
 <div class="container">
+  <h1>お気に入り一覧</h1>
   <div class="favorite-contents flexbox-space-around-wrap">
     <% @favorites.each do |favorite| %>
       <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group favorite-content">
+        <div class="list-inline text-center favorite-items">
+          <li><%= image_tag favorite.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if favorite.user.icon.attached? %></li>
+          <li><%= favorite.user.name %></li>
+          <% unless favorite.post.prefecture == '--未選択--' %>
+            <li><%= favorite.post.prefecture %></li>
+          <% end %>
+          <% if favorite.post.islands.present? %>
+            <% favorite.post.islands.each do |island|%>
+              <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
+            <% end %>
+          <% end %>
+        </div>
         <li class="list-group-item">
           <%= link_to favorite.post.image, "data-lightbox": "favorite-image" do %>
-           <%= image_tag favorite.post.image.variant(gravity: 'Center', resize: '300x400'), class:'main-image' if favorite.post.image.attached? %>
+            <%= image_tag favorite.post.image.variant(gravity: 'Center', resize: '300x400'), class:'main-image' if favorite.post.image.attached? %>
           <% end %>
         </li>
+        <li class="list-group-item"><%= favorite.post.content %></li>
         <li class="list-group-item">
           <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
         </li>
