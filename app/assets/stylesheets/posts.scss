@@ -1,4 +1,13 @@
 // 共通
+.icon::before {
+  font-family: "Font Awesome 5 Free"; /*←ココ！！！！！！！*/
+  font-weight: 900;
+  content: "\f007";
+}
+.heart_red{color:#e54747;}
+.heart_o{color: gray;}
+.awesome-icon{padding-left: 2px;}
+
 h1, h2 {
   margin: 0
 }
