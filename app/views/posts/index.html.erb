@@ -74,7 +74,9 @@
               </li>
             </ul>
           <% end %>
-          <p class="text-right comment-link-space"><%= link_to 'すべてのコメントを見る', post %></p>
+          <% if post.comments.present? %>
+            <p class="text-right comment-link-space"><%= link_to 'すべてのコメントを見る', post %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
