@@ -62,7 +62,7 @@
           </ul>
         </div>
         <div class="comment-content">
-          <% post.comments.each do |comment| %>
+          <% post.comments.limit(3).each do |comment| %>
             <ul class="media-list">
               <li class="media content-space">
                 <div class="media-left">
@@ -74,6 +74,7 @@
               </li>
             </ul>
           <% end %>
+          <p class="text-right"><%= link_to 'すべてのコメントを見る', post %></p>
         </div>
       <% end %>
     </div>
