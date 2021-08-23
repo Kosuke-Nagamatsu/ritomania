@@ -56,11 +56,11 @@
         <% end %>
         <%= yield %>
       </div>
-      <footer>
-        <% if user_signed_in? %>
-        <p>COPYRIGHT &#169; 離島マニア ALL RIGHTS RESERVED. </p>
-        <% end %>
-      </footer>
+      <% if user_signed_in? %>
+        <footer>
+          <p>COPYRIGHT &#169; 離島マニア ALL RIGHTS RESERVED. </p>
+        </footer>
+      <% end %>
     </div>
   </body>
 </html>
