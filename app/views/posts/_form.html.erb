@@ -12,19 +12,18 @@
         </div>
       <% end %>
       <div class="field">
-        <%= form.label :image %>
+        <%= form.label '思い出の写真を投稿しよう！' %>
         <%= form.file_field :image %>
       </div>
       <div class="field">
         <%= form.label :content %>
-        <%= form.text_area :content, class: "form-control" %>
+        <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
       </div>
       <div class="field">
-        <%= form.label :prefecture %>
+        <%= form.label 'どこへの旅ですか？' %>
         <%= form.select :prefecture, Post.prefectures.keys, {}, class: "form-control" %>
       </div>
       <div class="field">
-        <%= form.label '離島名' %>
         <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name, class: "form-control") %>
       </div>
       <div class="actions">

@@ -9,8 +9,7 @@
       <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class: "main-image" %></p>
     <% end %>
     <p><b>本文：</b><%= @post.content %></p>
-    <p><b>都道府県：</b><%= @post.prefecture %></p>
-    <%= form.label '離島名' %>
+    <p><b>どこへの旅ですか？：</b><%= @post.prefecture %></p>
     <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
     <div class="actions">
       <%= form.submit t('view.back'), name: 'back' %><%= form.submit t('view.post_to') %>
