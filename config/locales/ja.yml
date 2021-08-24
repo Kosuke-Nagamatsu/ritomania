@@ -9,17 +9,21 @@ ja:
     destroy: 削除
     destroy_comment: コメント削除
     back: 戻る
-    email: メールアドレス
+    email_sample: 例）ritotaro@example.com
     password: パスワード
     password_confirmation: パスワード確認
+    current_password: 現在のパスワード
     favorite_islands: 好きな離島
     sign_up: アカウント登録
     log_in: ログイン
     guest_log_in: ゲストログイン
     admin_guest_log_in: 管理者ゲストログイン
     post_to: 投稿する
-    user_name: ユーザーネーム
+    user_name_sample: 例）りとう たろう
     all_comments: すべてのコメントを見る
+    comment_content: コメント内容
+    content_area: ここに本文を記入してください
+    comment_content_area: ここにコメントを記入してください
   activerecord:
     errors:
       messages:

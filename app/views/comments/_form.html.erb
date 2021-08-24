@@ -4,11 +4,11 @@
       <%= render 'comments/error_messages', model: form.object %>
     </div>
     <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content, class: 'form-control' %>
+      <%= form.label t('view.comment_content') %>
+      <%= form.text_area :content, class: 'form-control', placeholder: t('view.comment_content_area') %>
     </div>
     <div class="actions">
-      <%= form.submit class: '' %>
+      <%= form.submit t('view.post_to') %>
     </div>
   <% end %>
 </div>

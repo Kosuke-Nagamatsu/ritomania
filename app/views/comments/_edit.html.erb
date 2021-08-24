@@ -4,8 +4,8 @@
       <%= render 'comments/error_messages', model: form.object %>
     </div>
     <div class="field">
-      <%= form.text_area :content, id: "comment_content_#{post.id}", class: 'form-control' %>
-      <%= form.label :content %>
+      <%= form.text_area :content, id: "comment_content_#{post.id}", class: 'form-control', placeholder: t('view.comment_content_area') %>
+      <%= form.label t('view.comment_content') %>
     </div>
     <div class="actions">
       <%= form.submit %>
