@@ -20,10 +20,12 @@
         <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
       </div>
       <div class="field">
-        <%= form.label 'どこへの旅ですか？' %>
+        <p class="field-title">どこへの旅ですか？</p>
+        <%= form.label :prefecture %><br>
         <%= form.select :prefecture, Post.prefectures.keys, {}, class: "form-control" %>
       </div>
       <div class="field">
+        <%= form.label '離島（複数可）' %><br>
         <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name, class: "form-control") %>
       </div>
       <div class="actions">
