@@ -12,6 +12,7 @@ ja:
     email_sample: 例）ritotaro@example.com
     password: パスワード
     password_confirmation: パスワード確認
+    current_password: 現在のパスワード
     favorite_islands: 好きな離島
     sign_up: アカウント登録
     log_in: ログイン
