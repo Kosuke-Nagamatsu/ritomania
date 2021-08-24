@@ -20,7 +20,9 @@ ja:
     post_to: 投稿する
     user_name: ユーザーネーム
     all_comments: すべてのコメントを見る
-    content_area: ここに本文を記入してください。
+    comment_content: コメント内容
+    content_area: ここに本文を記入してください
+    comment_content_area: ここにコメントを記入してください
   activerecord:
     errors:
       messages:
