@@ -4,4 +4,5 @@ class Island < ApplicationRecord
   has_many :island_favorites, dependent: :destroy
   has_many :users, through: :island_favorites
   validates :name, presence: true
+  validates :name, uniqueness: true
 end
