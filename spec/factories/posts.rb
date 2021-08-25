@@ -1,9 +1,10 @@
 FactoryBot.define do
   factory :post do
-    content { '失敗テスト' }
-    prefecture { '北海道' }
+    content { '離島へいこう！' }
+    prefecture { '沖縄県' }
+
+    after(:build) do |post|
+      post.image.attach(io: File.open('spec/fixtures/images/test.png'), filename: 'test.png')
+    end
   end
-  # after(:build) do |post|
-  #   post.image.attach(io: File.open('spec/fixtures/images/test.png'), filename: 'test.png')
-  # end
 end
