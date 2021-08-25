@@ -16,5 +16,11 @@ describe '離島モデル機能', type: :model do
         expect(island2).to be_valid
       end
     end
+    context '離島名が空白の場合' do
+      it 'バリデーションにひっかかる' do
+        island = Island.create(name: "")
+        expect(island).not_to be_valid
+      end
+    end
   end
 end
