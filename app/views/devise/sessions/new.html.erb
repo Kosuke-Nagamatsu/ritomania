@@ -3,7 +3,6 @@
     <div>
       <h2 class= "account-session-header text-center"><%= t('.sign_in') %></h2>
       <div class="form-group account-session-form">
-        <h3 class="text-center">離島マニア</h3>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email %><br />
