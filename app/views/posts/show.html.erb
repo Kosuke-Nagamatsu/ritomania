@@ -22,11 +22,19 @@
       <% end %>
     </div>
     <div class="right-wrapper col-md-offset-1 col-md-6">
-      <h2 class="post-sub-header">コメントしてみよう！</h2>
+      <h2 class="post-sub-header label label-default">
+        <% if @post.user == current_user %>
+          <%= "#{@post.user.name}さんへのコメント一覧" %>
+        <% else %>
+          <%= "#{@post.user.name}さんへコメントしてみよう！" %>
+        <% end %>
+      </h2>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
       </div>
+      <% unless @post.user == current_user %>
         <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+      <% end %>
     </div>
   </div>
   <span><%= link_to t('view.back'), posts_path %></span>
