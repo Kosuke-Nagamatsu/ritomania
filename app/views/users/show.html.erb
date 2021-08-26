@@ -2,7 +2,7 @@
 <div class="container flexbox-container-vertical-center">
   <div>
     <ul class="list-group">
-      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '300x300'), class:'img-circle' if @user.icon.attached? %></li>
+      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '250x250'), class:'img-circle' if @user.icon.attached? %></li>
       <li class="list-group-item"><%= t('view.email') %>：<%= "#{@user.email}" %></li>
       <% if @user.islands.present? %>
         <li class="list-group-item"><%= t('view.favorite_islands') %>：
