@@ -84,7 +84,7 @@ footer p {
 // 投稿一覧ページ
 .search-form {
   width: 250px;
-  margin: 40px 20px;
+  margin: 40px 30px;
 }
 .search-btn {
   margin: 8px 0;
@@ -136,10 +136,13 @@ footer p {
 }
 
 // 投稿詳細ページ
+.show-box {
+  margin: 15px 0;
+}
 .show-content {
   padding: 10px 10px 10px 10px;
   border: 2px solid #e8e8e8;
-  border-radius: 30px;
+  // border-radius: 30px;
 }
 .items {
   padding-top: 10px;
@@ -150,14 +153,17 @@ footer p {
 #comments_area {
   padding-top: 20px;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border: 1px solid #d8d7d7;
-  height: 600px;
+  height: 500px;
   overflow-y: auto;
 }
 // 投稿新規・編集ページ
 .post-form {
   width: 400px;
+}
+.post-sub-header {
+  font-size: 1.6em;
 }
 .actions {
   margin: 10px 0;
