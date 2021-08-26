@@ -20,17 +20,17 @@
             </div>
           <% end %>
           <div class="actions flexbox-center">
-            <%= f.submit t('.sign_in'), class: "btn btn-default btn-custom" %>
+            <%= f.submit t('.sign_in'), class: "btn btn-primary btn-custom" %>
           </div>
         <% end %>
       </div>
       <ul class="flexbox-space-around">
-        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-default btn-custom" %></li>
-        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-default btn-custom" %></li>
+        <li class="list-right-margin"><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-info btn-custom" %></li>
+        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-info btn-custom" %></li>
       </ul><br><br>
-      <ul class="flexbox-space-around">
+      <ul class="text-center">
+        <li><%= render "devise/shared/links" %></li><br>
         <li><%= link_to t('view.back'), tops_index_path, class: "btn btn-default btn-custom" %></li>
-        <li><%= render "devise/shared/links" %></li>
       </ul>
     </div>
   </div>
