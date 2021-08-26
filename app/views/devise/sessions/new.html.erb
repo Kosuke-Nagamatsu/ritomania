@@ -3,7 +3,6 @@
     <div>
       <h2 class= "account-session-header text-center"><%= t('.sign_in') %></h2>
       <div class="form-group account-session-form">
-        <h3 class="text-center">離島マニア</h3>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <%= f.label :email %><br />
@@ -20,17 +19,17 @@
             </div>
           <% end %>
           <div class="actions flexbox-center">
-            <%= f.submit t('.sign_in'), class: "btn btn-default btn-custom" %>
+            <%= f.submit t('.sign_in'), class: "btn btn-primary btn-custom" %>
           </div>
         <% end %>
       </div>
       <ul class="flexbox-space-around">
-        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-default btn-custom" %></li>
-        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-default btn-custom" %></li>
+        <li class="list-right-margin"><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-info btn-custom" %></li>
+        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-info btn-custom" %></li>
       </ul><br><br>
-      <ul class="flexbox-space-around">
+      <ul class="text-center">
+        <li><%= render "devise/shared/links" %></li><br>
         <li><%= link_to t('view.back'), tops_index_path, class: "btn btn-default btn-custom" %></li>
-        <li><%= render "devise/shared/links" %></li>
       </ul>
     </div>
   </div>

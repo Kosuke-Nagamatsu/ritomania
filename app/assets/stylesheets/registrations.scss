@@ -7,14 +7,14 @@
   padding: 30px 0;
 }
 .input-field {
-  border-radius: 20px;
 }
 .btn-custom {
-  border-radius: 20px;
+  width: 160px;
 }
 // プロフィール編集
 .user-edit-form {
-  width: 400px;
+  width: 360px;
+  padding-top: 20px;
 }
 .field {
   padding: 10px 0;
@@ -25,4 +25,7 @@
 .delete_account_content h3 {
   font-size: 1em;
   font-weight: bold;
+}
+.list-right-margin {
+  margin-right: 10px;
 }
