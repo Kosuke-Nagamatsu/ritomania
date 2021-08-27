@@ -1,8 +1,8 @@
 # Userデータ
-# user = User.create(name: "アップル",
-#                   email: "apple@aaa.com",
-#                   password: "password")
-# user.icon.attach(io: File.open(Rails.root.join('app/assets/images/apple.png')), filename: 'apple.png')
+user = User.create(name: "アップル",
+                  email: "apple@aaa.com",
+                  password: "password")
+user.icon.attach(io: File.open( "./db/images/apple.png"), filename: "apple.png")
 # user = User.create(name: "ツリー",
 #                   email: "tree@ttt.com",
 #                   password: "password")
@@ -70,7 +70,7 @@
 #  )
 # post.image.attach(io: File.open(Rails.root.join('app/assets/images/aka.jpg')), filename: 'aka.jpg')
 # post.save!
-
+#
 # Favoriteデータ
 # User.all.each do |user|
 #   favorite = Favorite.new(
@@ -81,10 +81,10 @@
 # end
 
 # Islandデータ
-islands = ["波照間島", "宮古島", "阿嘉島", "福江島", "鵜来島", "淡路島"]
-islands.each do |island|
-  Island.create!(name: island)
-end
+# islands = ["波照間島", "宮古島", "阿嘉島", "福江島", "鵜来島", "淡路島"]
+# islands.each do |island|
+#   Island.create!(name: island)
+# end
 
 # PostIslandデータ
 # post_island = PostIsland.new(

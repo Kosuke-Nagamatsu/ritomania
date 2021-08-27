@@ -6,5 +6,8 @@ FactoryBot.define do
     after(:build) do |post|
       post.image.attach(io: File.open('spec/fixtures/images/test.png'), filename: 'test.png')
     end
+    # after (:build) do |post|
+    #   post.image.attach(io: File.open("./spec/fixtures/images/test.png"), filename: 'test.png')
+    # end
   end
 end
