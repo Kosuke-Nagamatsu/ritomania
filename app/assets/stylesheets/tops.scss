@@ -6,6 +6,7 @@
   // background-color:rgba(255,255,255,0.1);
 //   background-blend-mode:lighten;
 // }
+.wf-nikukyu { font-family: "Nikukyu"; }
 .bg-slider {
 	width: 100vw;
 	height: 100vh;
@@ -17,21 +18,17 @@
 }
 .bg-slider__title{
 	color: #fff;
-	font-size: 58px;
+	font-size: 4em;
 	line-height: 1.5;
 	font-weight: bold;
 	text-align:center;
 	text-shadow: 1px 1px 1px #000;
 }
-.top-header {
-  font-size: 3.2em;
-  color: white;
-}
 .concept {
   font-size: 1.2em;
   line-height: 1.4;
   color: white;
-  margin: 30px 0;
+  margin: 50px 0;
 }
 .btn-top {
   width: 130px;
