@@ -35,5 +35,8 @@
         <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     </div>
   </div>
-  <span><%= link_to t('view.back'), posts_path %></span>
+  <%= link_to posts_path do %>
+    <i class="fa fa-chevron-left "></i>
+    <span class="awesome-icon">戻る</span>
+  <% end %>
 </div>

@@ -23,9 +23,14 @@
       <% end %>
     </li>
     <% if comment.user == current_user %>
-      <span><%= link_to t('view.edit_comment'), edit_post_comment_path(post, comment), remote: true %></span>
-      <span><%= link_to t('view.destroy_comment'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true,
-                                                   data: { confirm: "本当に削除しますか?"} %></span>
+      <p class="text-right">
+        <%= link_to edit_post_comment_path(post, comment), remote: true do %>
+          <i class="fa fa-edit "></i><span class="awesome-icon"></span>
+        <% end %>
+        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
+          <i class="fa fa-trash-o"></i><span class="awesome-icon"></span>
+        <% end %>
+      </p>
     <% end %>
     <br>
   <% end %>
