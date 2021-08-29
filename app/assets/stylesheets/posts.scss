@@ -152,12 +152,18 @@ footer p {
   margin-top: 30px;
 }
 #comments_area {
-  padding-top: 20px;
+  padding: 10px;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border: 1px solid #d8d7d7;
   height: 500px;
   overflow-y: auto;
+}
+.show-comment-space {
+  background-color: #e8e8e8;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 0 10px;
 }
 // 投稿新規・編集ページ
 .post-form {

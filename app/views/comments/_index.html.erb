@@ -1,17 +1,24 @@
 <p id="notice"></p>
-  <ul>
+  <ul class="media-list">
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
+      <li class="media">
         <div class="comment" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= "#{comment.user.name}さん" %></p>
-        <p><%= comment.content %></p>
+        <div class="media-left">
+          <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+        </div>
+        <div class="media-body">
+          <p><%= "#{comment.user.name}さん" %></p>
+        </div>
+        <div>
+          <p class="show-comment-space"><%= comment.content %></p>
+        </div>
+      </li>
         <% if comment.user == current_user %>
           <span><%= link_to t('view.edit_comment'), edit_post_comment_path(post, comment), remote: true %></span>
           <span><%= link_to t('view.destroy_comment'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true,
                                           data: { confirm: "本当に削除しますか?"} %></span>
         <% end %>
-      </li>
       <br>
     <% end %>
   <% end %>
