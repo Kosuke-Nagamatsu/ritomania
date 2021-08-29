@@ -1,4 +1,4 @@
-<div class="background-box">
+<div class="bg-box">
   <div class="container flexbox-center">
     <div>
       <h2 class= "account-session-header text-center"><%= t('.sign_in') %></h2>
@@ -18,17 +18,17 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
-          <div class="actions flexbox-center">
+          <div class="actions text-center">
             <%= f.submit t('.sign_in'), class: "btn btn-primary btn-custom" %>
+          </div>
+          <div class="actions text-center">
+            <%= render "devise/shared/links" %>
           </div>
         <% end %>
       </div>
-      <ul class="flexbox-space-around">
-        <li class="list-right-margin"><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-info btn-custom" %></li>
-        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-info btn-custom" %></li>
-      </ul><br><br>
-      <ul class="text-center">
-        <li><%= render "devise/shared/links" %></li><br>
+      <ul class="guest-form text-center">
+        <li><%= link_to t('view.guest_log_in'), users_guest_sign_in_path, method: :post, class: "btn btn-info btn-custom" %></li><br>
+        <li><%= link_to t('view.admin_guest_log_in'), users_guest_sign_in_path(admin: "true"), method: :post, class: "btn btn-info btn-custom" %></li><br><br>
         <li><%= link_to t('view.back'), root_path, class: "btn btn-default btn-custom" %></li>
       </ul>
     </div>

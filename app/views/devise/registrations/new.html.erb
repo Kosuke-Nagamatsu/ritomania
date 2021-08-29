@@ -1,8 +1,8 @@
-<div class="background-box">
+<div class="bg-box">
   <div class="container flexbox-center">
     <div>
       <h2 class= "account-session-header text-center"><%= t('.sign_up') %></h2>
-      <div class="form-group account-session-form">
+      <div class="form-group account-session-form account-form">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field">
@@ -31,13 +31,13 @@
           <div class="field">
             <%= f.label :island_ids, '好きな離島はどこですか？' %><br />
             <%= f.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
-          </div><br>
-          <div class="actions flexbox-center">
-            <%= f.submit t('.sign_up'), class: "btn btn-default btn-custom" %>
+          </div>
+          <div class="actions text-center">
+            <%= f.submit t('.sign_up'), class: "btn btn-primary btn-custom" %>
           </div>
         <% end %>
       </div>
-      <ul class="flexbox-space-around">
+      <ul class="flexbox-space-around account-link-area">
         <li><%= link_to t('view.back'), root_path, class: "btn btn-default btn-custom" %></li>
         <li><%= render "devise/shared/links" %></li>
       </ul>

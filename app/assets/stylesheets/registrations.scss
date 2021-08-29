@@ -1,10 +1,37 @@
 // アカウント登録・ログイン
+.bg-box {
+  width: 100vw;
+	height: 100vh;
+	background-position:center center;
+  background-size: cover;
+  background-image: url("bg-image2.jpg");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+}
 .account-session-header {
   margin: 30px 0;
 }
 .account-session-form {
-  width: 350px;
-  padding: 30px 0;
+  padding: 20px 50px;
+  background-color: white;
+  border-radius: 10px;
+}
+.account-form {
+  width: 400px;
+  padding: 10px 15px;
+}
+.account-session-form .actions {
+  padding: 10px 0;
+}
+.guest-form {
+  padding-top: 25px;
+  padding-left: 0;
+  margin: 0;
+}
+.account-link-area {
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-left: 0;
 }
 .input-field {
 }
@@ -25,7 +52,4 @@
 .delete_account_content h3 {
   font-size: 1em;
   font-weight: bold;
-}
-.list-right-margin {
-  margin-right: 10px;
 }
