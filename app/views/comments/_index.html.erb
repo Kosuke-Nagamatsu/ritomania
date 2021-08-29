@@ -1,18 +1,40 @@
 <p id="notice"></p>
-  <ul>
+<ul class="media-list">
   <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <li>
-        <div class="comment" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= "#{comment.user.name}さん" %></p>
-        <p><%= comment.content %></p>
-        <% if comment.user == current_user %>
-          <span><%= link_to t('view.edit_comment'), edit_post_comment_path(post, comment), remote: true %></span>
-          <span><%= link_to t('view.destroy_comment'), post_comment_path(comment.post_id, comment.id), method: :delete, remote: true,
-                                          data: { confirm: "本当に削除しますか?"} %></span>
+    <li class="media">
+      <div class="comment" id ="this_comment_<%= comment.id %>"></div>
+      <% if comment.id.present? && comment.user == current_user %>
+        <div class="media-left">
+          <p class="oneself-name"><span class="label label-info">あなた</span></p>
+        </div>
+        <div class="media-body">
+          <p class><%= "#{time_ago_in_words(comment.created_at)}前" %></p>
+        </div>
+        <div>
+          <p class="show-comment-space oneself"><%= comment.content %></p>
+        </div>
+      <% elsif comment.id.present? && comment.user != current_user %>
+        <div class="media-left">
+          <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+        </div>
+        <div class="media-body vertical-align-middle">
+          <p><span><%= "#{comment.user.name}さん" %></span><span class="created-date"><%= "#{time_ago_in_words(post.created_at)}前" %></span></p>
+        </div>
+        <div>
+          <p class="show-comment-space"><%= comment.content %></p>
+        </div>
+      <% end %>
+    </li>
+    <% if comment.user == current_user %>
+      <p class="icon-paragraph text-right">
+        <%= link_to edit_post_comment_path(post, comment), remote: true do %>
+          <i class="fa fa-edit "></i><span class="awesome-icon"></span>
         <% end %>
-      </li>
-      <br>
+        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
+          <i class="fa fa-trash-o"></i><span class="awesome-icon"></span>
+        <% end %>
+      </p>
     <% end %>
+    <br>
   <% end %>
 </ul>
