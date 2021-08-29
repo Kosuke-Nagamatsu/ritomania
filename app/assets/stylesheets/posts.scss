@@ -66,6 +66,9 @@ body {
 .text-right {
   text-align: right;
 }
+.vertical-align-middle {
+  vertical-align: middle;
+}
 .navbar-custom {
   margin: 0;
 }
@@ -175,6 +178,12 @@ footer p {
 }
 .show-comment-space.oneself {
   background-color: #dcedf5;
+}
+.comment-created-at {
+  padding-left: 10px;
+}
+.icon-paragraph {
+  margin: 0;
 }
 // 投稿新規・編集ページ
 .post-form {

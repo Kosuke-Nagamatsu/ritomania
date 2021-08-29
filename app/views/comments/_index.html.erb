@@ -4,18 +4,21 @@
     <li class="media">
       <div class="comment" id ="this_comment_<%= comment.id %>"></div>
       <% if comment.id.present? && comment.user == current_user %>
-        <div class="media-top">
+        <div class="media-left">
           <p class="oneself-name"><span class="label label-info">あなた</span></p>
         </div>
         <div class="media-body">
+          <p><%= "#{time_ago_in_words(comment.created_at)}前" %></p>
+        </div>
+        <div>
           <p class="show-comment-space oneself"><%= comment.content %></p>
         </div>
       <% elsif comment.id.present? && comment.user != current_user %>
         <div class="media-left">
           <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
         </div>
-        <div class="media-body">
-          <p><%= "#{comment.user.name}さん" %></p>
+        <div class="media-body vertical-align-middle">
+          <p><span><%= "#{comment.user.name}さん" %></span><span class="comment-created-at"><%= "#{time_ago_in_words(post.created_at)}前" %></span></p>
         </div>
         <div>
           <p class="show-comment-space"><%= comment.content %></p>
@@ -23,7 +26,7 @@
       <% end %>
     </li>
     <% if comment.user == current_user %>
-      <p class="text-right">
+      <p class="icon-paragraph text-right">
         <%= link_to edit_post_comment_path(post, comment), remote: true do %>
           <i class="fa fa-edit "></i><span class="awesome-icon"></span>
         <% end %>
