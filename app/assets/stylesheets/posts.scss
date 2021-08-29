@@ -143,7 +143,6 @@ footer p {
 .show-content {
   padding: 10px 10px 10px 10px;
   border: 2px solid #e8e8e8;
-  // border-radius: 30px;
 }
 .items {
   padding-top: 10px;
@@ -164,6 +163,18 @@ footer p {
   border-radius: 30px;
   padding: 15px;
   margin: 0 10px;
+}
+.oneself-name {
+  padding-left: 5px;
+}
+.oneself-name .label-info {
+  border: 1px solid #337ab7;
+  border-radius: 5px;
+  color: #337ab7;
+  background-color: #fff;
+}
+.show-comment-space.oneself {
+  background-color: #dcedf5;
 }
 // 投稿新規・編集ページ
 .post-form {
