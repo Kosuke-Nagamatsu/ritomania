@@ -8,7 +8,7 @@
           <p class="oneself-name"><span class="label label-info">あなた</span></p>
         </div>
         <div class="media-body">
-          <p><%= "#{time_ago_in_words(comment.created_at)}前" %></p>
+          <p class><%= "#{time_ago_in_words(comment.created_at)}前" %></p>
         </div>
         <div>
           <p class="show-comment-space oneself"><%= comment.content %></p>
@@ -18,7 +18,7 @@
           <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
         </div>
         <div class="media-body vertical-align-middle">
-          <p><span><%= "#{comment.user.name}さん" %></span><span class="comment-created-at"><%= "#{time_ago_in_words(post.created_at)}前" %></span></p>
+          <p><span><%= "#{comment.user.name}さん" %></span><span class="created-date"><%= "#{time_ago_in_words(post.created_at)}前" %></span></p>
         </div>
         <div>
           <p class="show-comment-space"><%= comment.content %></p>
