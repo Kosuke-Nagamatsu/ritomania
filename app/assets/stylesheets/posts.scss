@@ -4,9 +4,12 @@
   font-weight: 900;
   content: "\f007";
 }
-.heart_red{color:#e54747;}
+.heart_red{color: #e54747;}
 .heart_o{color: gray;}
-.awesome-icon{padding-left: 2px;}
+.medium_red{color: #e54747;}
+.medium_o{color: gray;}
+// .awesome-icon{padding-left: 0;}
+.icon-padding{padding-left: 6px;}
 
 #error_explanation, .alert-notice, .alert-error {
   display: contents;

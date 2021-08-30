@@ -1,10 +1,21 @@
-<% if post.favorited_by?(current_user) %>
+<% if post.favorited_by?(current_user) && post.favorites.count < 10 %>
   <%= link_to post_favorite_path(post.id, post.favorite_ids), id: 'test-link', method: :delete, remote: true do %>
     <i class="fa fa-heart heart_red"></i>
+    <span class="awesome-icon icon-padding"><%= post.favorites.count %></span>
+  <% end %>
+<% elsif post.favorites.count < 10 %>
+  <%= link_to post_favorites_path(post.id), id: 'link', method: :post, remote: true do %>
+    <i class="fa fa-heart-o heart_o"></i>
+    <span class="awesome-icon icon-padding"><%= post.favorites.count %></span>
+  <% end %>
+<% elsif post.favorited_by?(current_user) && post.favorites.count >= 10 %>
+  <%= link_to post_favorite_path(post.id, post.favorite_ids), id: 'test-link', method: :delete, remote: true do %>
+    <i class="fa fa-medium fa-lg medium_red"></i>
+    <span class="awesome-icon"><%= post.favorites.count %></span>
   <% end %>
 <% else %>
   <%= link_to post_favorites_path(post.id), id: 'link', method: :post, remote: true do %>
-    <i class="fa fa-heart-o heart_o"></i>
+    <i class="fa fa-medium fa-lg medium_o"></i>
+    <span class="awesome-icon"><%= post.favorites.count %></span>
   <% end %>
 <% end %>
-<span class="awesome-icon"><%= post.favorites.count %></span>
