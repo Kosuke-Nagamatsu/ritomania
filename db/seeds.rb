@@ -2,23 +2,23 @@
 user = User.create(name: "アップル",
                   email: "apple@aaa.com",
                   password: "password")
-user.icon.attach(io: File.open(Rails.root.join('app/assets/images/apple.png")), filename: "apple.png")
+user.icon.attach(io: File.open( "./db/images/apple.png"), filename: "apple.png")
 user = User.create(name: "ツリー",
                   email: "tree@ttt.com",
                   password: "password")
-user.icon.attach(io: File.open(Rails.root.join('app/assets/images/tree.png')), filename: 'tree.png')
+user.icon.attach(io: File.open('./db/images/tree.png'), filename: 'tree.png')
 user = User.create(name: "ラビット",
                   email: "rabbit@rrr.com",
                   password: "password")
-user.icon.attach(io: File.open(Rails.root.join('app/assets/images/rabbit.png')), filename: 'rabbit.png')
+user.icon.attach(io: File.open('./db/images/rabbit.png'), filename: 'rabbit.png')
 user = User.create(name: "わんこ",
                   email: "dog@ddd.com",
                   password: "password")
-user.icon.attach(io: File.open(Rails.root.join('app/assets/images/dog.png')), filename: 'dog.png')
+user.icon.attach(io: File.open('./db/images/dog.png'), filename: 'dog.png')
 user = User.create(name: "ピーナッツ",
                   email: "peanut@ppp.com",
                   password: "password")
-user.icon.attach(io: File.open(Rails.root.join('app/assets/images/peanut.png')), filename: 'peanut.png')
+user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
 
 # Postデータ
 post = Post.new(
@@ -26,49 +26,49 @@ post = Post.new(
   prefecture: "長崎県",
   user_id: User.first.id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/fukue.jpg')), filename: 'fukue.jpg')
+post.image.attach(io: File.open('./db/images/fukue.jpg'), filename: 'fukue.jpg')
 post.save!
 post = Post.new(
   content: "いただきます！",
   prefecture: "高知県",
   user_id: User.find(2).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/uguru.jpg')), filename: 'uguru.jpg')
+post.image.attach(io: File.open('./db/images/uguru.jpg'), filename: 'uguru.jpg')
 post.save!
 post = Post.new(
   content: "鯛が釣れるとは。。",
   prefecture: "高知県",
   user_id: User.find(2).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/uguru2.jpg')), filename: 'uguru2.jpg')
+post.image.attach(io: File.open('./db/images/uguru2.jpg'), filename: 'uguru2.jpg')
 post.save!
 post = Post.new(
   content: "橋がきれい!ここが宮古で一番きれいかも。",
   prefecture: "沖縄県",
   user_id: User.find(3).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/miyako.jpg')), filename: 'miyako.jpg')
+post.image.attach(io: File.open('./db/images/miyako.jpg'), filename: 'miyako.jpg')
 post.save!
 post = Post.new(
   content: "波照間ブルー",
   prefecture: "沖縄県",
   user_id: User.find(4).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/hateruma.jpg')), filename: 'hateruma.jpg')
+post.image.attach(io: File.open('./db/images/hateruma.jpg'), filename: 'hateruma.jpg')
 post.save!
 post = Post.new(
   content: "向こうに見えるのが淡路島〜",
   prefecture: "兵庫県",
   user_id: User.find(5).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/awaji.jpg')), filename: 'awaji.jpg')
+post.image.attach(io: File.open('./db/images/awaji.jpg'), filename: 'awaji.jpg')
 post.save!
 post = Post.new(
   content: "慶良間ブルー",
   prefecture: "沖縄県",
   user_id: User.find(1).id
  )
-post.image.attach(io: File.open(Rails.root.join('app/assets/images/aka.jpg')), filename: 'aka.jpg')
+post.image.attach(io: File.open('./db/images/aka.jpg'), filename: 'aka.jpg')
 post.save!
 
 # Favoriteデータ
