@@ -81,7 +81,7 @@
               </li>
             </ul>
           <% end %>
-          <% if post.comments.present? %>
+          <% if post.comments.count >= 4 %>
             <p class="text-right comment-link-space"><%= link_to t('view.all_comments'), post %></p>
           <% end %>
         </div>
