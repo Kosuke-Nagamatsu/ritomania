@@ -75,8 +75,13 @@
                 <div class="media-left">
                   <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
                 </div>
-                <div class="media-body comment-space">
-                  <p><%= comment.content %></p>
+                <div class="media-body">
+                  <% if comment.user == current_user %>
+                    <p class="comment-space oneself">
+                  <% else %>
+                    <p class="comment-space">
+                  <% end %>
+                  <%= comment.content %></p>
                 </div>
               </li>
             </ul>

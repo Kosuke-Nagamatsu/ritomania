@@ -126,8 +126,6 @@ footer p {
   border-right: 1px solid #d8d7d7;
 }
 .comment-space {
-}
-.comment-space p {
   background-color: #e8e8e8;
   border-radius: 30px;
   padding: 15px;
@@ -164,12 +162,6 @@ footer p {
   height: 500px;
   overflow-y: auto;
 }
-.show-comment-space {
-  background-color: #e8e8e8;
-  border-radius: 30px;
-  padding: 15px;
-  margin: 0 10px;
-}
 .oneself-name {
   padding-left: 5px;
 }
@@ -179,7 +171,7 @@ footer p {
   color: #337ab7;
   background-color: #fff;
 }
-.show-comment-space.oneself {
+.comment-space.oneself {
   background-color: #dcedf5;
 }
 .created-date {
