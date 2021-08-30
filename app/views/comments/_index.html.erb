@@ -28,10 +28,10 @@
     <% if comment.user == current_user %>
       <p class="icon-paragraph text-right">
         <%= link_to edit_post_comment_path(post, comment), remote: true do %>
-          <i class="fa fa-edit "></i><span class="awesome-icon"></span>
+          <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
         <% end %>
         <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
-          <i class="fa fa-trash-o"></i><span class="awesome-icon"></span>
+          <i class="fa fa-trash-o fa-lg"></i><span class="awesome-icon"></span>
         <% end %>
       </p>
     <% end %>
