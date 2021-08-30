@@ -93,10 +93,13 @@ footer p {
   width: 250px;
   margin: 40px 30px;
 }
-.search-btn {
-  margin: 8px 0;
+.post_search {
+  margin-top: 10px;
 }
-.search-form-label {
+.search-btn {
+}
+.search-btn input {
+  width: 60px;
 }
 .contents {
   width: 520px;
