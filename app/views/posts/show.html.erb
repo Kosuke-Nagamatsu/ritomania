@@ -16,8 +16,12 @@
       <p class="show-content"><%= @post.content %></p>
       <% if @post.user == current_user %>
         <ul class="list-inline">
-          <li><%= link_to t('view.edit'), edit_post_path(@post) %></li>
-          <li><%= link_to t('view.destroy'), post_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to edit_post_path(@post) do %>
+            <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
+          <% end %></li>
+          <%= link_to post_path, method: :delete, data: { confirm: "本当に削除しますか?"} do %>
+            <i class="fa fa-trash-o fa-lg"></i><span class="awesome-icon"></span>
+          <% end %>
         </ul>
       <% end %>
     </div>
