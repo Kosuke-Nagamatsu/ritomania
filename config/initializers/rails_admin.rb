@@ -9,7 +9,14 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  config.authorize_with :cancancan
+  # config.authorize_with :cancancan
+  config.authorize_with do |controller|
+    if current_user.nil?
+      redirect_to main_app.new_account_session_path, flash: {error: 'Please Login to Continue..'}
+    elsif !current_user.admin?
+      redirect_to main_app.root_path, flash: {error: 'あなたは管理者ではありません！'}
+    end
+  end
 
   ## == Pundit ==
   # config.authorize_with :pundit
