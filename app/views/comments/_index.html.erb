@@ -11,7 +11,7 @@
           <p class><%= "#{time_ago_in_words(comment.created_at)}前" %></p>
         </div>
         <div>
-          <p class="show-comment-space oneself"><%= comment.content %></p>
+          <p class="comment-space oneself"><%= comment.content %></p>
         </div>
       <% elsif comment.id.present? && comment.user != current_user %>
         <div class="media-left">
@@ -21,17 +21,17 @@
           <p><span><%= "#{comment.user.name}さん" %></span><span class="created-date"><%= "#{time_ago_in_words(post.created_at)}前" %></span></p>
         </div>
         <div>
-          <p class="show-comment-space"><%= comment.content %></p>
+          <p class="comment-space"><%= comment.content %></p>
         </div>
       <% end %>
     </li>
     <% if comment.user == current_user %>
       <p class="icon-paragraph text-right">
         <%= link_to edit_post_comment_path(post, comment), remote: true do %>
-          <i class="fa fa-edit "></i><span class="awesome-icon"></span>
+          <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
         <% end %>
         <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
-          <i class="fa fa-trash-o"></i><span class="awesome-icon"></span>
+          <i class="fa fa-trash-o fa-lg"></i><span class="awesome-icon"></span>
         <% end %>
       </p>
     <% end %>
