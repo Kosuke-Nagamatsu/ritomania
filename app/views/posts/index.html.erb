@@ -47,7 +47,7 @@
             <li class="media">
               <div class="media-top">
                 <%= link_to post.image, "data-lightbox": post.image do %>
-                  <%= image_tag post.image.variant(gravity: 'Center', resize: '500x600'), class:'main-image' if post.image.attached? %>
+                  <%= image_tag post.image.variant(gravity: 'Center', resize: '500x600'), class:'main-image polaroid' if post.image.attached? %>
                 <% end %>
               </div>
               <div class="media-body content-space">
