@@ -1,96 +1,98 @@
-<h1 class="bg-info text-center main-header">気になる離島を見つけてみよう！</h1>
-<div class="container">
-  <div class="flexbox-center">
-    <div class="form-group search-form search-form-label">
-      <p class="label label-default">キーワードと離島名で検索</p>
-      <%= search_form_for @q, url: posts_path do |f| %>
-        <%= f.label :content_cont, 'キーワード' %>
-        <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
-        <%= f.label :islands_id_eq, '離島名' %>
-        <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control test-island'} %><br>
-        <div class="text-center search-btn">
-          <%= f.submit '検索', class: 'test' %>
-        </div>
-      <% end %>
+<div class="bg-color">
+  <h1 class="bg-info text-center main-header">気になる離島を見つけてみよう！</h1>
+  <div class="container">
+    <div class="flexbox-center">
+      <div class="form-group search-form search-form-label">
+        <p class="label label-default">キーワードと離島名で検索</p>
+        <%= search_form_for @q, url: posts_path do |f| %>
+          <%= f.label :content_cont, 'キーワード' %>
+          <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
+          <%= f.label :islands_id_eq, '離島名' %>
+          <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control test-island'} %><br>
+          <div class="text-center search-btn">
+            <%= f.submit '検索', class: 'test' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="form-group search-form">
+        <p class="label label-default">都道府県名で検索</p>
+        <%= search_form_for @q, url: posts_path do |f| %>
+          <div>
+            <%= f.label :prefecture_eq, '都道府県' %>
+            <%= f.select :prefecture_eq, Post.prefectures{|key,value| [Post.prefectures[key],value]}, {}, {class: 'form-control', id: 'test-prefecture'} %>
+          </div><br>
+          <div class="text-center search-btn">
+            <%= f.submit '検索', class: 'test2' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="form-group search-form">
-      <p class="label label-default">都道府県名で検索</p>
-      <%= search_form_for @q, url: posts_path do |f| %>
-        <div>
-          <%= f.label :prefecture_eq, '都道府県' %>
-          <%= f.select :prefecture_eq, Post.prefectures{|key,value| [Post.prefectures[key],value]}, {}, {class: 'form-control', id: 'test-prefecture'} %>
-        </div><br>
-        <div class="text-center search-btn">
-          <%= f.submit '検索', class: 'test2' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="flexbox-center">
-    <div class="contents">
-      <% @posts.each do |post| %>
-        <div class="main-content">
-          <ul class="list-inline items">
-            <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
-            <li><%= post.user.name %></li>
-            <% unless post.prefecture == '--未選択--' %>
-              <li><%= post.prefecture %></li>
-            <% end %>
-            <% if post.islands.present? %>
-              <% post.islands.each do |island|%>
-                <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
+    <div class="flexbox-center">
+      <div class="contents">
+        <% @posts.each do |post| %>
+          <div class="main-content">
+            <ul class="list-inline items">
+              <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
+              <li><%= post.user.name %></li>
+              <% unless post.prefecture == '--未選択--' %>
+                <li><%= post.prefecture %></li>
               <% end %>
-            <% end %>
-            <li class="list-time"><%= "#{time_ago_in_words(post.created_at)}前" %></li>
-          </ul>
-          <ul class="media-list">
-            <li class="media">
-              <div class="media-top">
-                <%= link_to post.image, "data-lightbox": post.image do %>
-                  <%= image_tag post.image.variant(gravity: 'Center', resize: '500x600'), class:'main-image polaroid' if post.image.attached? %>
+              <% if post.islands.present? %>
+                <% post.islands.each do |island|%>
+                  <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
                 <% end %>
-              </div>
-              <div class="media-body content-space">
-                <%= post.content %>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="sub-content">
-          <ul class="list-inline content-space flexbox-space-around">
-            <li id="favorite-btn-<%= post.id %>">
-              <%= render partial: 'favorites/favorite', locals: { post: post } %>
-            </li>
-            <li><%= "コメント#{post.comments.count}件" %></li>
-            <% unless post.user == current_user %>
-              <li><%= link_to t('view.comment'), post %></li>
-            <% end %>
-            <li><%= link_to t('view.show'), post %></li>
-          </ul>
-        </div>
-        <div class="comment-content">
-          <% post.comments.limit(3).each do |comment| %>
+              <% end %>
+              <li class="list-time"><%= "#{time_ago_in_words(post.created_at)}前" %></li>
+            </ul>
             <ul class="media-list">
-              <li class="media content-space">
-                <div class="media-left">
-                  <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
-                </div>
-                <div class="media-body">
-                  <% if comment.user == current_user %>
-                    <p class="comment-space oneself">
-                  <% else %>
-                    <p class="comment-space">
+              <li class="media">
+                <div class="media-top">
+                  <%= link_to post.image, "data-lightbox": post.image do %>
+                    <%= image_tag post.image.variant(gravity: 'Center', resize: '500x600'), class:'main-image polaroid' if post.image.attached? %>
                   <% end %>
-                  <%= comment.content %></p>
+                </div>
+                <div class="media-body content-space">
+                  <%= post.content %>
                 </div>
               </li>
             </ul>
-          <% end %>
-          <% if post.comments.count >= 4 %>
-            <p class="text-right comment-link-space"><%= link_to t('view.all_comments'), post %></p>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+          <div class="sub-content">
+            <ul class="list-inline content-space flexbox-space-around">
+              <li id="favorite-btn-<%= post.id %>">
+                <%= render partial: 'favorites/favorite', locals: { post: post } %>
+              </li>
+              <li><%= "コメント#{post.comments.count}件" %></li>
+              <% unless post.user == current_user %>
+                <li><%= link_to t('view.comment'), post %></li>
+              <% end %>
+              <li><%= link_to t('view.show'), post %></li>
+            </ul>
+          </div>
+          <div class="comment-content">
+            <% post.comments.limit(3).each do |comment| %>
+              <ul class="media-list">
+                <li class="media content-space">
+                  <div class="media-left">
+                    <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+                  </div>
+                  <div class="media-body">
+                    <% if comment.user == current_user %>
+                      <p class="comment-space oneself">
+                    <% else %>
+                      <p class="comment-space">
+                    <% end %>
+                    <%= comment.content %></p>
+                  </div>
+                </li>
+              </ul>
+            <% end %>
+            <% if post.comments.count >= 4 %>
+              <p class="text-right comment-link-space"><%= link_to t('view.all_comments'), post %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
