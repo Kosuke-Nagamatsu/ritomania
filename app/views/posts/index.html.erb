@@ -42,6 +42,7 @@
                 <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
               <% end %>
             <% end %>
+            <li class="list-time"><%= "#{time_ago_in_words(post.created_at)}前" %></li>
           </ul>
           <ul class="media-list">
             <li class="media">
