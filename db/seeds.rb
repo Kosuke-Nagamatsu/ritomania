@@ -1,13 +1,13 @@
 # Userデータ
-user = User.create(name: "アップル",
+user = User.create(name: "アポル",
                   email: "apple@aaa.com",
                   password: "password")
 user.icon.attach(io: File.open( "./db/images/apple.png"), filename: "apple.png")
-user = User.create(name: "ツリー",
+user = User.create(name: "ツーリ",
                   email: "tree@ttt.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/tree.png'), filename: 'tree.png')
-user = User.create(name: "ラビット",
+user = User.create(name: "うさ吉",
                   email: "rabbit@rrr.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/rabbit.png'), filename: 'rabbit.png')
@@ -15,8 +15,24 @@ user = User.create(name: "わんこ",
                   email: "dog@ddd.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/dog.png'), filename: 'dog.png')
-user = User.create(name: "ピーナッツ",
+user = User.create(name: "ピナッツー",
                   email: "peanut@ppp.com",
+                  password: "password")
+user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
+user = User.create(name: "タイセツ",
+                  email: "money@mmm.com",
+                  password: "password")
+user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
+user = User.create(name: "フ・ナンシー",
+                  email: "nashi@nnn.com",
+                  password: "password")
+user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
+user = User.create(name: "バード",
+                  email: "bird@bbb.com",
+                  password: "password")
+user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
+user = User.create(name: "ニャン",
+                  email: "cat@ccc.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
 
@@ -124,28 +140,34 @@ post_island = PostIsland.new(
 post_island.save!
 
 # Commentデータ
-comment = Comment.new(
-  user_id: User.find(1).id,
-  post_id: Post.find(4).id,
-  content: "あの奥に見える橋はなんですか？"
-)
-comment.save!
-comment = Comment.new(
-  user_id: User.find(3).id,
-  post_id: Post.find(4).id,
-  content: "あれは〇〇です！"
-)
-comment.save!
-comment = Comment.new(
-  user_id: User.find(1).id,
-  post_id: Post.find(4).id,
-  content: "へー。そうなんですね。。めっちゃ綺麗なんで絶対いきます！"
-)
+# comment = Comment.new(
+#   user_id: User.find(1).id,
+#   post_id: Post.find(4).id,
+#   content: "あの奥に見える橋はなんですか？"
+# )
+# comment.save!
+# comment = Comment.new(
+#   user_id: User.find(3).id,
+#   post_id: Post.find(4).id,
+#   content: "あれは〇〇です！"
+# )
+# comment.save!
+# comment = Comment.new(
+#   user_id: User.find(1).id,
+#   post_id: Post.find(4).id,
+#   content: "へー。そうなんですね。。めっちゃ綺麗なんで絶対いきます！"
+# )
 comment.save!
 comment = Comment.new(
   user_id: User.find(3).id,
   post_id: Post.find(4).id,
   content: "せひぜひ〜"
+)
+comment.save!
+comment = Comment.new(
+  user_id: User.find(6).id,
+  post_id: Post.find(6).id,
+  content: "あそこに行けばうまい玉ねぎが食べれるのか〜"
 )
 comment.save!
 comment = Comment.new(
