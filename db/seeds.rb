@@ -157,13 +157,13 @@ post_island.save!
 #   post_id: Post.find(4).id,
 #   content: "へー。そうなんですね。。めっちゃ綺麗なんで絶対いきます！"
 # )
-comment.save!
-comment = Comment.new(
-  user_id: User.find(3).id,
-  post_id: Post.find(4).id,
-  content: "せひぜひ〜"
-)
-comment.save!
+# comment.save!
+# comment = Comment.new(
+#   user_id: User.find(3).id,
+#   post_id: Post.find(4).id,
+#   content: "せひぜひ〜"
+# )
+# comment.save!
 comment = Comment.new(
   user_id: User.find(6).id,
   post_id: Post.find(6).id,
