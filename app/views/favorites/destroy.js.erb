@@ -1,2 +1,7 @@
-$("#favorite-btn-<%= @post.id %>").html("<%= j(render partial: 'favorites/favorite', locals: {post: @post }) %>");
-$("#favorite-btn-favorites<%= @post.id %>").remove();
+// $("#favorite-btn-<%= @post.id %>").html("<%= j(render partial: 'favorites/favorite', locals: {post: @post }) %>");
+// $("#favorite-btn-favorites<%= @post.id %>").remove();
+<% if @current_page == 'index' %>
+  $("#favorite-btn-<%= @post.id %>").html("<%= j(render partial: 'favorites/favorite', locals: {post: @post }) %>");
+<% else %>
+  $('#favorite-btn-<%= @post.id %>').remove();
+<% end %>
