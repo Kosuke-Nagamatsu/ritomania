@@ -2,7 +2,7 @@
 <div class="container">
   <div class="favorite-contents flexbox-space-around-wrap">
     <% @favorites.each do |favorite| %>
-      <ul id="favorite-btn-favorites<%= favorite.post.id %>" class="list-group favorite-content">
+      <ul id="favorite-btn-<%= favorite.post.id %>" class="list-group favorite-content">
         <div class="list-inline text-center favorite-items">
           <li><%= image_tag favorite.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if favorite.user.icon.attached? %></li>
           <li><%= favorite.user.name %></li>
