@@ -1,3 +1,2 @@
 $("#favorite-btn-<%= @post.id %>").html("<%= j(render partial: 'favorites/favorite', locals: {post: @post }) %>");
-// $("#link").remove();
-// $(".awesome-icon").remove();
+$("#favorite-btn-favorites<%= @post.id %>").remove();
