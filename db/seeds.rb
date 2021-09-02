@@ -23,7 +23,7 @@ user = User.create(name: "タイセツ",
                   email: "money@mmm.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
-user = User.create(name: "フ・ナンシー",
+user = User.create(name: "ナンシー",
                   email: "nashi@nnn.com",
                   password: "password")
 user.icon.attach(io: File.open('./db/images/peanut.png'), filename: 'peanut.png')
@@ -140,12 +140,12 @@ post_island = PostIsland.new(
 post_island.save!
 
 # Commentデータ
-# comment = Comment.new(
-#   user_id: User.find(1).id,
-#   post_id: Post.find(4).id,
-#   content: "あの奥に見える橋はなんですか？"
-# )
-# comment.save!
+comment = Comment.new(
+  user_id: User.find(1).id,
+  post_id: Post.find(4).id,
+  content: "あの奥に見える橋はなんですか？"
+)
+comment.save!
 comment = Comment.new(
   user_id: User.find(3).id,
   post_id: Post.find(4).id,
