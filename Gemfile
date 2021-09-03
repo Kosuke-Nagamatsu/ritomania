@@ -44,7 +44,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'cancancan', '~> 1.15.0'
 gem 'mini_magick'
 gem 'image_processing'
-# gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false
 gem "font-awesome-rails"
 gem 'letter_opener_web'
 
