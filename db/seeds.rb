@@ -165,7 +165,7 @@ comment = Comment.new(
 )
 comment.save!
 comment = Comment.new(
-  user_id: User.find(6).id,
+  user_id: User.find(9).id,
   post_id: Post.find(6).id,
   content: "あそこに行けばうまい玉ねぎが食べれるのか〜"
 )
