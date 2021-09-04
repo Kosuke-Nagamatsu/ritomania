@@ -127,11 +127,16 @@ footer p {
 .search-form p {
   margin: 0;
 }
+.button:hover {
+  opacity: 0.6;
+  cursor:pointer;
+}
 .prefecture-field {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 15px;
+  display: none;
 }
 .prefecture-field p {
   color: #666;
@@ -145,7 +150,7 @@ footer p {
   color: #999;
 }
 .search-btn-prefecture {
-  padding-top: 20px;
+  padding-top: 18px;
 }
 .search-btn input {
   width: 50%;
