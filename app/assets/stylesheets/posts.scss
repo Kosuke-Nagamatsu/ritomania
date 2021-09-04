@@ -118,16 +118,37 @@ footer p {
   background-color: #fff;
 }
 .search-form {
-  width: 250px;
+  width: 320px;
   margin: 40px 30px;
 }
 .post_search {
   margin-top: 10px;
 }
-.search-btn {
+.search-form p {
+  margin: 0;
+}
+.prefecture-field {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+}
+.prefecture-field p {
+  color: #666;
+  border-bottom: 1px dotted #666;
+  font-weight: bold;
+}
+.area-title {
+  padding-top: 10px;
+}
+.prefecture-field label {
+  color: #999;
+}
+.search-btn-prefecture {
+  padding-top: 20px;
 }
 .search-btn input {
-  width: 60px;
+  width: 50%;
 }
 .contents {
   width: 520px;

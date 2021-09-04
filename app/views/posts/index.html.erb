@@ -2,13 +2,15 @@
   <h1 class="bg-info text-center main-header">気になる離島を見つけてみよう！</h1>
   <div class="container">
     <div class="flexbox-center">
-      <div class="form-group search-form search-form-label">
+      <div class="form-group search-form">
         <p class="label label-default">キーワードと離島名で検索</p>
         <%= search_form_for @q, url: posts_path do |f| %>
-          <%= f.label :content_cont, 'キーワード' %>
-          <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
-          <%= f.label :islands_id_eq, '離島名' %>
-          <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control test-island'} %><br>
+          <div class="field">
+            <%= f.label :content_cont, 'キーワード' %>
+            <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
+            <%= f.label :islands_id_eq, '離島名' %>
+            <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control test-island'} %><br>
+          </div>
           <div class="text-center search-btn">
             <%= f.submit '検索', class: 'test' %>
           </div>
@@ -17,29 +19,29 @@
       <div class="form-group search-form">
         <p class="label label-default">都道府県名で検索</p>
         <%= search_form_for @q, url: posts_path do |f| %>
-          <div class="field">
+          <div class="prefecture-field">
             <% Post.prefectures.each do |prefecture| %>
               <% if prefecture[0] == "北海道" %>
-                <div><span>北海道・東北</span></div>
+                <p>北海道・東北</p>
               <% elsif prefecture[0] == "茨城県" %>
-                <div><span>関東</span></div>
+                <p class="area-title">関東</p>
               <% elsif prefecture[0] == "新潟県" %>
-                <div><span>中部</span></div>
+                <p class="area-title">中部</p>
               <% elsif prefecture[0] == "三重県" %>
-                <div><span>関西</span></div>
+                <p class="area-title">関西</p>
               <% elsif prefecture[0] == "鳥取県" %>
-                <div><span>中国</span></div>
+                <p class="area-title">中国</p>
               <% elsif prefecture[0] == "徳島県" %>
-                <div><span>四国</span></div>
+                <p class="area-title">四国</p>
               <% elsif prefecture[0] == "福岡県" %>
-                <div><span>九州・沖縄</span></div>
+                <p class="area-title">九州・沖縄</p>
               <% end %>
               <%= f.label :prefecture_eq, prefecture[0] %>
               <%= f.radio_button :prefecture_eq, prefecture[1] %>
             <% end %>
-          </div>
-          <div class="text-center search-btn">
-            <%= f.submit '検索', class: 'test2' %>
+            <div class="text-center search-btn search-btn-prefecture">
+              <%= f.submit '検索', class: 'test2' %>
+            </div>
           </div>
         <% end %>
       </div>
