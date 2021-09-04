@@ -242,10 +242,27 @@ li.list-time {
 }
 // 投稿新規・編集ページ
 .post-form {
-  width: 400px;
+  width: 650px;
 }
 .post-sub-header {
   font-size: 1.3em;
+}
+.prefecture-field-custom {
+  backgroundl-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+}
+.prefecture-field-custom p {
+  color: #666;
+  border-bottom: 1px dotted #666;
+  font-weight: bold;
+}
+.prefecture-field-custom label {
+  color: #999;
+}
+.field-title {
+  font-weight: bold;
 }
 .actions {
   margin: 10px 0;

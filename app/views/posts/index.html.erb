@@ -53,7 +53,7 @@
             <ul class="list-inline items">
               <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
               <li><%= post.user.name %></li>
-              <% unless post.prefecture == '--未選択--' %>
+              <% unless post.prefecture == '選択しない' %>
                 <li><%= post.prefecture %></li>
               <% end %>
               <% if post.islands.present? %>
