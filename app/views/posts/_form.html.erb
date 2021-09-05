@@ -19,8 +19,8 @@
         <%= form.label :content %>
         <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
       </div>
-      <p class="field-title">どこへの旅ですか？</p>
-      <div class="prefecture-field-custom">
+      <p class="field-title">どこへの旅ですか？<span class="label label-success button" id="show-hide-btn">都道府県を表示</span></p>
+      <div class="prefecture-field">
         <% Post.prefectures.each do |prefecture| %>
           <% if prefecture[0] == "北海道" %>
             <p class="area-title">北海道・東北</p>
