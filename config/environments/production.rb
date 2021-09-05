@@ -24,7 +24,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://limitless-beyond-47766.herokuapp.com/' }
   config.action_mailer.delivery_method = :letter_opener_web
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.

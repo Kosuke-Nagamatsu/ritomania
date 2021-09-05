@@ -1,4 +1,4 @@
-<div class="form-group flexbox-container-vertical-center">
+<div class="form-group flexbox-center">
   <div class="post-form">
     <%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
       <% if post.errors.any? %>
@@ -19,10 +19,27 @@
         <%= form.label :content %>
         <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
       </div>
-      <div class="field">
-        <p class="field-title">どこへの旅ですか？</p>
-        <%= form.label :prefecture %><br>
-        <%= form.select :prefecture, Post.prefectures.keys, {}, class: "form-control" %>
+      <p class="field-title">どこへの旅ですか？<span class="label label-success button" id="show-hide-btn">都道府県を表示</span></p>
+      <div class="prefecture-field">
+        <% Post.prefectures.each do |prefecture| %>
+          <% if prefecture[0] == "北海道" %>
+            <p class="area-title">北海道・東北</p>
+          <% elsif prefecture[0] == "茨城県" %>
+            <p class="area-title">関東</p>
+          <% elsif prefecture[0] == "新潟県" %>
+            <p class="area-title">中部</p>
+          <% elsif prefecture[0] == "三重県" %>
+            <p class="area-title">関西</p>
+          <% elsif prefecture[0] == "鳥取県" %>
+            <p class="area-title">中国</p>
+          <% elsif prefecture[0] == "徳島県" %>
+            <p class="area-title">四国</p>
+          <% elsif prefecture[0] == "福岡県" %>
+            <p class="area-title">九州・沖縄</p>
+          <% end %>
+          <%= form.label :prefecture, prefecture[0] %>
+          <%= form.radio_button :prefecture, prefecture[0] %>
+        <% end %>
       </div>
       <div class="field">
         <%= form.label '離島（複数可）' %><br>

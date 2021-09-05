@@ -36,16 +36,9 @@ body {
   margin: 0px;
   overflow: hidden;
 }
-// navbarカスタム
 header {
   background-color: #fff;
 }
-// .navbar-primary a {
-//   color: white;
-// }
-// .nav>li>a:focus, .nav>li>a:hover {
-//     background-color: #96c7f2;
-// }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     background-color: #96c7f2;
     border-color: #337ab7;
@@ -118,16 +111,45 @@ footer p {
   background-color: #fff;
 }
 .search-form {
-  width: 250px;
+  width: 240px;
   margin: 40px 30px;
+}
+.search-form-prefecture {
+  width: 370px;
 }
 .post_search {
   margin-top: 10px;
 }
-.search-btn {
+.search-form p {
+  margin: 0;
+}
+.button:hover {
+  opacity: 0.6;
+  cursor:pointer;
+}
+.prefecture-field {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  display: none;
+}
+.prefecture-field p {
+  color: #555;
+  border-bottom: 1px dotted #666;
+  font-weight: bold;
+}
+.area-title {
+  padding-top: 10px;
+}
+.prefecture-field label {
+  color: #999;
+}
+.search-btn-prefecture {
+  padding-top: 18px;
 }
 .search-btn input {
-  width: 60px;
+  width: 50%;
 }
 .contents {
   width: 520px;
@@ -145,15 +167,6 @@ li.list-time {
   width: 100%;
   height: auto;
 }
-// img.polaroid{
-//   background:#000;
-//   border:solid #fff;
-//   border-width:6px 6px 20px 6px;
-//   box-shadow:1px 1px 5px #333;
-//   -webkit-box-shadow:1px 1px 5px #333;
-//   -moz-box-shadow:1px 1px 5px #333;
-//   width:100%;
-// }
 .sub-content {
   border-left: 1px solid #d8d7d7;
   border-bottom: 1px solid #d8d7d7;
@@ -229,11 +242,19 @@ li.list-time {
 }
 // 投稿新規・編集ページ
 .post-form {
-  width: 400px;
+  width: 650px;
+  padding: 20px;
 }
 .post-sub-header {
   font-size: 1.3em;
 }
+.field-title {
+  font-weight: bold;
+  margin-top: 10px;
+}
 .actions {
   margin: 10px 0;
+}
+.post-form .actions input {
+  width: 100px;
 }
