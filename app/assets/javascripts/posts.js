@@ -6,4 +6,9 @@ $(function () {
           width: 600,
           multiple: true,
         });
+    $('.select2_search').select2({
+          width: '100%',
+          placeholder: 'テキスト入力できます',
+          allowClear: true,
+        });
 });
