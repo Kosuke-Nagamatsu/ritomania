@@ -12,6 +12,7 @@
  *
  *= require font-awesome
  *= require bootstrap/dist/css/bootstrap.min
+ *= require select2
  *= require_tree .
  *= require_self
  */

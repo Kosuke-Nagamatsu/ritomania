@@ -47,6 +47,7 @@ gem 'image_processing'
 gem "aws-sdk-s3", require: false
 gem "font-awesome-rails"
 gem 'letter_opener_web'
+gem 'select2-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
