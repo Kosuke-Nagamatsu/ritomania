@@ -42,8 +42,8 @@
         <% end %>
       </div>
       <div class="field">
-        <%= form.label '離島（複数可）' %><br>
-        <%= form.collection_check_boxes(:island_ids, Island.all, :id, :name, class: "form-control") %>
+        <%= form.label :'離島名（複数可）' %>
+        <%= form.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %>
       </div>
       <div class="actions">
         <% if action_name == "new" %>

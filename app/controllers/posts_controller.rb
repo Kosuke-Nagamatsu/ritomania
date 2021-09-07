@@ -9,24 +9,16 @@ class PostsController < ApplicationController
       @posts = Island.find(params[:format]).posts
     end
   end
-
-  # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comments
     @comment = @post.comments.build
   end
-
-  # GET /posts/new
   def new
     @post = Post.new
   end
-
-  # GET /posts/1/edit
   def edit
     redirect_to posts_path unless @post.user == current_user
   end
-
-  # POST /posts or /posts.json
   def create
     @post = current_user.posts.build(post_params)
     if params[:back]
@@ -39,13 +31,10 @@ class PostsController < ApplicationController
       end
     end
   end
-
   def confirm
     @post = current_user.posts.build(post_params)
     render :new if @post.invalid?
   end
-
-  # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -57,8 +46,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
-  # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
@@ -71,12 +58,9 @@ class PostsController < ApplicationController
   def set_q
     @q = Post.ransack(params[:q])
   end
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
-
-  # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:content, :prefecture, :image, { island_ids: [] })
   end

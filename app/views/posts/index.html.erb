@@ -9,7 +9,7 @@
             <%= f.label :content_cont, 'キーワード' %>
             <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
             <%= f.label :islands_id_eq, '離島名' %>
-            <%= f.collection_select :islands_id_eq, Island.all, :id, :name, {include_blank: '--未選択--'}, {class: 'form-control test-island'} %><br>
+            <%= f.collection_select :islands_id_eq, Island.all, :id, :name, { prompt: ''}, { class: 'select2_search'} %>
           </div>
           <div class="text-center search-btn">
             <%= f.submit '検索', class: 'test' %>
