@@ -6,10 +6,12 @@ $(function () {
           width: '60%',
           placeholder: ' テキスト入力で絞り込めます',
           multiple: true,
+          language: "ja"
         });
     $('.select2_search').select2({
           width: '100%',
           placeholder: '入力で絞りこめます',
           allowClear: true,
+          language: "ja"
         });
 });
