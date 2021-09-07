@@ -3,12 +3,13 @@ $(function () {
         $('.prefecture-field').fadeToggle(200);
     });
     $('.select2').select2({
-          width: 600,
+          width: '60%',
+          placeholder: ' テキスト入力で絞り込めます',
           multiple: true,
         });
     $('.select2_search').select2({
           width: '100%',
-          placeholder: 'テキスト入力できます',
+          placeholder: '入力で絞りこめます',
           allowClear: true,
         });
 });
