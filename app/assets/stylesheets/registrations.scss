@@ -1,7 +1,7 @@
 // アカウント登録・ログイン
 .bg-box {
   width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	background-position:center center;
   background-size: cover;
   background-image: url("bg-image2.jpg");
@@ -42,6 +42,9 @@
 .user-edit-form {
   width: 360px;
   padding-top: 20px;
+}
+.user-edit-form ul {
+  padding-inline-start: 0;
 }
 .field {
   padding: 10px 0;

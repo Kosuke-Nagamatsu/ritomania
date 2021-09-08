@@ -14,4 +14,10 @@ $(function () {
           allowClear: true,
           language: "ja"
         });
+    $('.select2_user').select2({
+          width: '100%',
+          placeholder: ' テキスト入力で絞り込めます',
+          multiple: true,
+          language: "ja"
+        });
 });
