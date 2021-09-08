@@ -7,7 +7,7 @@
         <%= search_form_for @q, url: posts_path do |f| %>
           <div class="field">
             <%= f.label :content_cont, 'キーワード' %>
-            <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
+            <%= f.search_field :content_or_comments_content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
             <%= f.label :islands_id_eq, '離島名' %>
             <%= f.collection_select :islands_id_eq, Island.all, :id, :name, { prompt: ''}, { class: 'select2_search'} %>
           </div>
