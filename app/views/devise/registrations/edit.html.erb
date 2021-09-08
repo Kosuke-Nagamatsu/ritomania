@@ -42,7 +42,7 @@
         </div>
         <div class="field">
           <%= f.label :island_ids, '好きな離島はどこですか？' %><br />
-          <%= f.collection_check_boxes(:island_ids, Island.all, :id, :name) %>
+          <%= f.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2_user', multiple: true } %>
         </div>
         <div class="actions">
           <%= f.submit t('.update'), class: "form-control" %>
