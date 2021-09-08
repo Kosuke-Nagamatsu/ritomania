@@ -30,7 +30,7 @@
           </div>
           <div class="field">
             <%= f.label :island_ids, '好きな離島はどこですか？' %><br />
-            <%= f.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %>
+            <%= f.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2_user', multiple: true } %>
           </div>
           <div class="actions text-center">
             <%= f.submit t('.sign_up'), class: "btn btn-primary btn-custom" %>
