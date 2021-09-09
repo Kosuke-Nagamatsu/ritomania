@@ -1,22 +1,22 @@
 <div class="bg-color">
   <h1 class="bg-info text-center main-header">気になる離島を見つけてみよう！</h1>
   <div class="container">
-    <div class="flexbox-center">
-      <div class="form-group search-form">
+    <div class="row search-area">
+      <div class="form-group search-form col-sm-offset-2 col-sm-4 col-md-offset-3 col-md-3">
         <p class="label label-default">キーワードと離島名で検索</p>
         <%= search_form_for @q, url: posts_path do |f| %>
           <div class="field">
             <%= f.label :content_cont, 'キーワード' %>
-            <%= f.search_field :content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
+            <%= f.search_field :content_or_comments_content_cont, class: 'form-control', placeholder: '気になるワードで検索できます' %><br>
             <%= f.label :islands_id_eq, '離島名' %>
             <%= f.collection_select :islands_id_eq, Island.all, :id, :name, { prompt: ''}, { class: 'select2_search'} %>
           </div>
-          <div class="text-center search-btn">
+          <div class="text-center search-btn search-btn-keywords">
             <%= f.submit '検索', class: 'test' %>
           </div>
         <% end %>
       </div>
-      <div class="form-group search-form search-form-prefecture">
+      <div class="form-group search-form col-sm-5">
         <p class="label label-default button" id="show-hide-btn"><span class="label label-default button">都道府県名で検索（クリックで表示・非表示します）</p>
         <%= search_form_for @q, url: posts_path do |f| %>
           <div class="prefecture-field">
@@ -39,7 +39,7 @@
               <%= f.label :prefecture_eq, prefecture[0] %>
               <%= f.radio_button :prefecture_eq, prefecture[1] %>
             <% end %>
-            <div class="text-center search-btn search-btn-prefecture">
+            <div class="text-center search-btn">
               <%= f.submit '検索', class: 'test2' %>
             </div>
           </div>
