@@ -1,18 +1,25 @@
 # README
+## コンセプト
+旅人による離島を知りたい人のためのSNS
 ## 開発言語
-- Ruby2.6.5
-- Rails5.2.5
+- Ruby 2.6.5
+- Rails 5.2.5
 ## 就業Termの技術
 - devise
-- Ajaxを使ったコメント・お気に入り機能
+- Ajax（コメント機能・お気に入り機能）
+- AWS S3（ストレージ）
 ## カリキュラム外の技術
 - ransack
+## その他の技術
+- Active Storage
+- bootstrap
 ## 実行手順
 ```
 $ git clone git@github.com:Kosuke-Nagamatsu/ritomania.git
 $ cd ritomania
 $ bundle install
 $ rails db:create && rails db:migrate
+$ yarn add jquery
 $ rails s
 ```
 ## カタログ設計
