@@ -1,17 +1,41 @@
-<h1 class="bg-info text-center main-header"><%= "#{@user.name}さんのプロフィール" %></h1>
-<div class="container flexbox-container-vertical-center">
-  <div>
-    <ul class="list-group">
-      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '250x250'), class:'img-circle' if @user.icon.attached? %></li>
-      <li class="list-group-item"><%= t('view.email') %>：<%= "#{@user.email}" %></li>
+<div class="wrap">
+	<div class="arc-area text-center">
+    <ul class="icon-area list-inline">
+      <li><%= image_tag @user.icon.variant(combine_options:{gravity: :center, resize:'80x80',border:'2',bordercolor:'white'}), class:'img-circle' if @user.icon.attached? %></li>
       <% if @user.islands.present? %>
-        <li class="list-group-item"><%= t('view.favorite_islands') %>：
-          <% @user.islands.each do |island|%>
-            <%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
+        <li class="favorite-islands">
+          <p><span class="shadow">Like!</span>
+          <% @user.islands.each_with_index do |island, i|%>
+            <%  if i % 4 == 0 && i > 0 %>
+              <br><br>
+            <% end %>
+            <span class="aa"><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
           <% end %>
+          </p>
         </li>
       <% end %>
-      <li class="list-group-item"><%= link_to t('view.edit_profile'), edit_user_registration_path %></li>
     </ul>
+    <ul class="profile-area">
+      <li class="profile-name"><%= @user.name %></li>
+      <li class=""><i class="fa fa-envelope"></i><span><%= "#{@user.email}" %></span></li>
+    </ul>
+    <ul class="profile-area list-inline">
+      <li>お気に入り<span><%= @user.favorites.count %></span></li>
+      <li>投稿<span><%= @user.posts.count %></span></li>
+      <li>
+        <% ritoumania_count = 0 %>
+        <% @user.posts.each do |post| %>
+          <% if post.favorites.count >=10 %>
+            <% ritoumania_count += 1 %>
+          <% end %>
+        <% end %>
+        りとうM<span><%= ritoumania_count %></span>
+      </li>
+    </ul>
+	</div>
+</div>
+<div class="container flexbox-center">
+  <div class="actions">
+    <%= link_to t('view.edit_profile'), edit_user_registration_path, class: 'btn btn-default' %>
   </div>
 </div>

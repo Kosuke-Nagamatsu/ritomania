@@ -21,6 +21,7 @@ h1, h2 {
 }
 ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 a:hover {
   text-decoration: none;
@@ -40,11 +41,11 @@ header {
   background-color: #fff;
 }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
-    background-color: #96c7f2;
-    border-color: #337ab7;
+  background-color: #96c7f2;
+  border-color: #337ab7;
 }
 .navbar-toggle {
-    background-color:rgba(150, 199, 242, 1);
+  background-color:rgba(150, 199, 242, 1);
 }
 .navbar-toggle .icon-bar {
   background-color: white;
