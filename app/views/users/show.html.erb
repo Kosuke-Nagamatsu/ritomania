@@ -39,3 +39,69 @@
     <%= link_to t('view.edit_profile'), edit_user_registration_path, class: 'btn btn-default' %>
   </div>
 </div>
+<div class="flexbox-center">
+  <div class="contents contents-user">
+    <% @user.posts.each do |post| %>
+      <div class="main-content">
+        <ul class="list-inline items">
+          <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
+          <% unless post.prefecture == '選択しない' %>
+            <li><%= post.prefecture %></li>
+          <% end %>
+          <% if post.islands.present? %>
+            <% post.islands.each do |island|%>
+              <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
+            <% end %>
+          <% end %>
+          <li class="list-time"><%= "#{time_ago_in_words(post.created_at)}前" %></li>
+        </ul>
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-top">
+              <%= link_to post.image, "data-lightbox": post.image do %>
+                <%= image_tag post.image.variant(gravity: 'Center', resize: '400x480'), class:'main-image' if post.image.attached? %>
+              <% end %>
+            </div>
+            <div class="media-body content-space">
+              <%= post.content %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-content">
+        <ul class="list-inline content-space flexbox-space-around">
+          <li id="favorite-btn-<%= post.id %>">
+            <%= render partial: 'favorites/favorite', locals: { post: post } %>
+          </li>
+          <li><%= "コメント#{post.comments.count}件" %></li>
+          <% unless post.user == current_user %>
+            <li><%= link_to t('view.comment'), post %></li>
+          <% end %>
+          <li><%= link_to t('view.show'), post %></li>
+        </ul>
+      </div>
+      <div class="comment-content">
+        <% post.comments.limit(3).each do |comment| %>
+          <ul class="media-list">
+            <li class="media content-space">
+              <div class="media-left">
+                <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+              </div>
+              <div class="media-body">
+                <% if comment.user == current_user %>
+                  <p class="comment-space oneself">
+                <% else %>
+                  <p class="comment-space">
+                <% end %>
+                <%= comment.content %></p>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+        <% if post.comments.count >= 4 %>
+          <p class="text-right comment-link-space"><%= link_to t('view.all_comments'), post %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
