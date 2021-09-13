@@ -54,6 +54,10 @@ overflow: hidden;
   font-size: 1em;
   color: rgba(242, 126, 10, 1);
 }
+.shadow-custom {
+  color: #555;
+  padding-left: 6px;
+}
 .profile-name {
   font-size: 1.2em;
   font-weight: bold;
@@ -63,9 +67,14 @@ overflow: hidden;
   padding-left: 6px;
   padding-right: 6px;
 }
+.history-title {
+  padding: 0 15px;
+  margin-top: 20px; 
+}
 .contents-user {
   width: 420px;
   height: 500px;
-  padding: 15px;
+  padding: 5px 15px 15px 15px;
+  margin-top: 0;
   overflow-y: auto;
 }
