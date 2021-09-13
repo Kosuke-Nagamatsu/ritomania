@@ -69,12 +69,14 @@ overflow: hidden;
 }
 .history-title {
   padding: 0 15px;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 .contents-user {
+  background-color: rgba(212, 212, 212, 0.2);
   width: 420px;
   height: 500px;
-  padding: 5px 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   margin-top: 0;
+  border-radius: 5px;
   overflow-y: auto;
 }
