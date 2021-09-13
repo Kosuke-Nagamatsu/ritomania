@@ -58,7 +58,7 @@
         <ul class="media-list">
           <li class="media">
             <div class="media-top">
-              <%= link_to post.image, "data-lightbox": post.image do %>
+              <%= link_to post.image, "data-lightbox": "user-images" do %>
                 <%= image_tag post.image.variant(gravity: 'Center', resize: '400x480'), class:'main-image' if post.image.attached? %>
               <% end %>
             </div>

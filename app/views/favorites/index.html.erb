@@ -16,7 +16,7 @@
           <% end %>
         </div>
         <li class="list-group-item">
-          <%= link_to favorite.post.image, "data-lightbox": "favorite-image" do %>
+          <%= link_to favorite.post.image, "data-lightbox": "favorite-images" do %>
             <%= image_tag favorite.post.image.variant(gravity: 'Center', resize: '300x400'), class:'main-image' if favorite.post.image.attached? %>
           <% end %>
         </li>
