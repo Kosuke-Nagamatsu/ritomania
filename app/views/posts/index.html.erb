@@ -17,7 +17,7 @@
         <% end %>
       </div>
       <div class="form-group search-form col-sm-5">
-        <p class="label label-default button" id="show-hide-btn"><span class="label label-default button">都道府県名で検索（クリックで表示・非表示します）</p>
+        <p class="label label-default button" id="show-hide-btn"><span class="label label-default button">都道府県名で検索（クリックで表示・非表示します）</span></p>
         <%= search_form_for @q, url: posts_path do |f| %>
           <div class="prefecture-field">
             <% Post.prefectures.drop(1).each do |prefecture| %>

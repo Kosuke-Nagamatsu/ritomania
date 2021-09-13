@@ -1,17 +1,115 @@
-<h1 class="bg-info text-center main-header"><%= "#{@user.name}さんのプロフィール" %></h1>
-<div class="container flexbox-container-vertical-center">
-  <div>
-    <ul class="list-group">
-      <li class="list-group-item text-center"><%= image_tag @user.icon.variant(gravity: 'Center', resize: '250x250'), class:'img-circle' if @user.icon.attached? %></li>
-      <li class="list-group-item"><%= t('view.email') %>：<%= "#{@user.email}" %></li>
+<div class="wrap">
+	<div class="arc-area text-center">
+    <ul class="icon-area list-inline">
+      <li><%= image_tag @user.icon.variant(combine_options:{gravity: :center, resize:'80x80',border:'2',bordercolor:'white'}), class:'img-circle' if @user.icon.attached? %></li>
       <% if @user.islands.present? %>
-        <li class="list-group-item"><%= t('view.favorite_islands') %>：
-          <% @user.islands.each do |island|%>
-            <%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
+        <li class="favorite-islands">
+          <p><span class="shadow">Like!</span>
+          <% @user.islands.each_with_index do |island, i|%>
+            <%  if i % 4 == 0 && i > 0 %>
+              <br><br>
+            <% end %>
+            <span><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %>
           <% end %>
+          </p>
         </li>
       <% end %>
-      <li class="list-group-item"><%= link_to t('view.edit_profile'), edit_user_registration_path %></li>
     </ul>
+    <ul class="profile-area">
+      <li class="profile-name"><%= @user.name %></li>
+      <li class=""><i class="fa fa-envelope"></i><span><%= "#{@user.email}" %></span></li>
+    </ul>
+    <ul class="profile-area list-inline">
+      <li>お気に入り<span><%= @user.favorites.count %></span></li>
+      <li>投稿<span><%= @user.posts.count %></span></li>
+      <li id="mania-count">
+        <% ritoumania_count = 0 %>
+        <% @user.posts.each do |post| %>
+          <% if post.favorites.count >=10 %>
+            <% ritoumania_count += 1 %>
+          <% end %>
+        <% end %>
+        りとうM<span><%= ritoumania_count %></span>
+      </li>
+      <li id="tooltip">
+        <span><i class="fa fa-heart heart_red"></i>を10コもらうと<i class="fa fa-gift fa-lg"></i></span>
+      </li>
+    </ul>
+	</div>
+</div>
+<div class="container flexbox-center">
+  <div class="actions">
+    <%= link_to t('view.edit_profile'), edit_user_registration_path, class: 'btn btn-default' %>
+  </div>
+</div>
+<div class="flexbox-center">
+  <div>
+    <p class="history-title"><i class="fa fa-paw paw-deep-gray"></i><span class="shadow shadow-custom">おもいで</span></p>
+    <% if @user.posts.present? %>
+			<div class="contents contents-user">
+	      <% @user.posts.each do |post| %>
+	        <div class="main-content">
+	          <ul class="list-inline items">
+	            <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '50x50'), class:'img-circle' if post.user.icon.attached? %></li>
+	            <% unless post.prefecture == '選択しない' %>
+	              <li><%= post.prefecture %></li>
+	            <% end %>
+	            <% if post.islands.present? %>
+	              <% post.islands.each do |island|%>
+	                <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
+	              <% end %>
+	            <% end %>
+	            <li class="list-time"><%= "#{time_ago_in_words(post.created_at)}前" %></li>
+	          </ul>
+	          <ul class="media-list">
+	            <li class="media">
+	              <div class="media-top">
+	                <%= link_to post.image, "data-lightbox": "user-images" do %>
+	                  <%= image_tag post.image.variant(gravity: 'Center', resize: '400x480'), class:'main-image' if post.image.attached? %>
+	                <% end %>
+	              </div>
+	              <div class="media-body content-space">
+	                <%= post.content %>
+	              </div>
+	            </li>
+	          </ul>
+	        </div>
+	        <div class="sub-content">
+	          <ul class="list-inline content-space flexbox-space-around">
+	            <li id="favorite-btn-<%= post.id %>">
+	              <%= render partial: 'favorites/favorite', locals: { post: post } %>
+	            </li>
+	            <li><%= "コメント#{post.comments.count}件" %></li>
+	            <% unless post.user == current_user %>
+	              <li><%= link_to t('view.comment'), post %></li>
+	            <% end %>
+	            <li><%= link_to t('view.show'), post %></li>
+	          </ul>
+	        </div>
+	        <div class="comment-content">
+	          <% post.comments.limit(3).each do |comment| %>
+	            <ul class="media-list">
+	              <li class="media content-space">
+	                <div class="media-left">
+	                  <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '35x35'), class:'img-circle' if comment.user.icon.attached? %>
+	                </div>
+	                <div class="media-body">
+	                  <% if comment.user == current_user %>
+	                    <p class="comment-space oneself">
+	                  <% else %>
+	                    <p class="comment-space">
+	                  <% end %>
+	                  <%= comment.content %></p>
+	                </div>
+	              </li>
+	            </ul>
+	          <% end %>
+	          <% if post.comments.count >= 4 %>
+	            <p class="text-right comment-link-space"><%= link_to t('view.all_comments'), post %></p>
+	          <% end %>
+	        </div>
+	      <% end %>
+	    </div>
+		<% end %>
   </div>
 </div>
