@@ -49,7 +49,7 @@
       <% @user.posts.each do |post| %>
         <div class="main-content">
           <ul class="list-inline items">
-            <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if post.user.icon.attached? %></li>
+            <li><%= image_tag post.user.icon.variant(gravity: 'Center', resize: '50x50'), class:'img-circle' if post.user.icon.attached? %></li>
             <% unless post.prefecture == '選択しない' %>
               <li><%= post.prefecture %></li>
             <% end %>
@@ -90,7 +90,7 @@
             <ul class="media-list">
               <li class="media content-space">
                 <div class="media-left">
-                  <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if comment.user.icon.attached? %>
+                  <%= image_tag comment.user.icon.variant(gravity: 'Center', resize: '35x35'), class:'img-circle' if comment.user.icon.attached? %>
                 </div>
                 <div class="media-body">
                   <% if comment.user == current_user %>
