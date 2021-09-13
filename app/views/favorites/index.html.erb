@@ -6,7 +6,7 @@
         <div class="list-inline text-center favorite-items">
           <li><%= image_tag favorite.user.icon.variant(gravity: 'Center', resize: '40x40'), class:'img-circle' if favorite.user.icon.attached? %></li>
           <li><%= favorite.user.name %></li>
-          <% unless favorite.post.prefecture == '--未選択--' %>
+          <% unless favorite.post.prefecture == '選択しない' %>
             <li><%= favorite.post.prefecture %></li>
           <% end %>
           <% if favorite.post.islands.present? %>

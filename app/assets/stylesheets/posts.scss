@@ -223,7 +223,8 @@ li.list-time {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid #d8d7d7;
-  height: 500px;
+  border-radius: 4px;
+  max-height: 500px;
   overflow-y: auto;
 }
 .oneself-name {
@@ -258,6 +259,9 @@ li.list-time {
 }
 .actions {
   margin: 10px 0;
+}
+.right-wrapper .actions input {
+  width: 50%;
 }
 .post-form .actions input {
   width: 100px;

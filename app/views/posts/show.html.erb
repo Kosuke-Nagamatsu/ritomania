@@ -1,12 +1,12 @@
 <h1 class="bg-info text-center main-header">投稿詳細</h1>
 <div class="container">
   <div class="row">
-    <div class="col-md-5 show-box">
+    <div class="col-sm-5 show-box">
       <%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class:'main-image' if @post.image.attached? %>
       <ul class="list-inline items">
         <li><%= image_tag @post.user.icon.variant(gravity: 'Center', resize: '60x60'), class:'img-circle' if @post.user.icon.attached? %></li>
         <li><%= "#{@post.user.name}さん" %></li>
-        <li><%= @post.prefecture unless @post.prefecture == '--未選択--' %></li>
+        <li><%= @post.prefecture unless @post.prefecture == '選択しない' %></li>
         <% if @post.islands.present? %>
           <% @post.islands.each do |island|%>
             <li><%= link_to island.name, posts_path(island.id, search_island: "true"), class: 'label label-primary' %></li>
@@ -28,7 +28,7 @@
           <% end %>
         </ul>
     </div>
-    <div class="right-wrapper col-md-offset-1 col-md-6">
+    <div class="right-wrapper col-sm-offset-1 col-sm-6">
       <h2 class="post-sub-header label label-default">
         <% if @post.user == current_user %>
           <%= "#{@post.user.name}さんへのコメント一覧" %>
