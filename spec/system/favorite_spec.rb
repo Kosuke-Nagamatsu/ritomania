@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe 'お気に入り機能', type: :system do
   describe 'お気に入り登録機能' do

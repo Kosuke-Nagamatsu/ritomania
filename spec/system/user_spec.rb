@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe 'ユーザ機能', type: :system do
   describe 'ユーザ登録機能' do

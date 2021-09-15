@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe '旅の思い出CRUD機能', type: :system do
   describe '新規作成機能' do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe '管理者機能', type: :system do
   describe '管理者画面機能' do

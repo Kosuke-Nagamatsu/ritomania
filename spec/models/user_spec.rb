@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 describe 'ユーザモデル機能', type: :model do
   describe 'バリデーションのテスト' do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe 'コメント機能', type: :system do
   describe 'コメント作成機能' do
