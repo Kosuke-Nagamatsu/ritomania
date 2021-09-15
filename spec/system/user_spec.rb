@@ -8,8 +8,8 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user_email', with: 'ritotaro@example.com'
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        find('.actions').click
-        expect(page).to have_content 'りとう太郎さんのプロフィール'
+        click_button 'アカウント登録'
+        expect(page).to have_content 'りとう太郎'
       end
     end
   end
@@ -22,7 +22,7 @@ RSpec.describe 'ユーザ機能', type: :system do
         visit new_user_session_path
         fill_in 'user_email', with: 'ritotaro@example.com'
         fill_in 'user_password', with: 'password'
-        find('.actions').click
+        click_button 'ログイン'
         expect(page).to have_content '気になる離島を見つけてみよう！'
       end
     end
@@ -31,11 +31,11 @@ RSpec.describe 'ユーザ機能', type: :system do
         visit new_user_session_path
         fill_in 'user_email', with: 'ritotaro@example.com'
         fill_in 'user_password', with: 'password'
-        find('.actions').click
+        click_button 'ログイン'
         click_link 'マイページ'
         click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました。'
-        expect(page).to have_content '離島マニア'
+        expect(page).to have_content 'りとうまにあ'
       end
     end
     context 'ゲストログインを押した場合' do
@@ -59,7 +59,7 @@ RSpec.describe 'ユーザ機能', type: :system do
       visit new_user_session_path
       fill_in 'user_email', with: 'ritotaro@example.com'
       fill_in 'user_password', with: 'password'
-      find('.actions').click
+      click_button 'ログイン'
     end
     context 'ユーザ編集内容を入力後に更新ボタンを押した場合' do
       it 'ユーザ編集が完了し、ユーザ詳細画面へ遷移する' do
@@ -70,7 +70,7 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user_password_confirmation', with: 'password2'
         fill_in 'user_current_password', with: 'password'
         click_on '更新'
-        expect(page).to have_content 'りとう花子さんのプロフィール'
+        expect(page).to have_content 'りとう花子'
         expect(page).to have_content 'hanako@example.com'
       end
     end
