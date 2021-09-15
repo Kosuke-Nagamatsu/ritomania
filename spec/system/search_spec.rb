@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe '投稿の検索機能', type: :system do
   describe 'あいまい検索機能' do

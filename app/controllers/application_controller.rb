@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, if: :use_auth?
@@ -11,14 +13,15 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :icon, { island_ids: [] }])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :icon, { island_ids: [] }])
   end
+
   private
+
   def use_auth?
-    unless controller_name == 'tops' && action_name == 'index'
-      true
-    end
+    true unless controller_name == 'tops' && action_name == 'index'
   end
 end

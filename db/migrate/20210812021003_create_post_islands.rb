@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePostIslands < ActiveRecord::Migration[5.2]
   def change
     create_table :post_islands do |t|

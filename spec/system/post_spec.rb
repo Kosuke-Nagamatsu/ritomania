@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe '旅の思い出CRUD機能', type: :system do
   describe '新規作成機能' do
@@ -10,7 +12,7 @@ RSpec.describe '旅の思い出CRUD機能', type: :system do
       it '確認画面で投稿するを押すと投稿が完了し、投稿一覧画面へ遷移する' do
         visit new_post_path
         attach_file 'post[image]',
-           "./spec/fixtures/images/test.png"
+                    './spec/fixtures/images/test.png'
         fill_in 'post_content', with: 'A島に行きました'
         find('#show-hide-btn').click
         choose 'post_prefecture_北海道'
@@ -50,7 +52,7 @@ RSpec.describe '旅の思い出CRUD機能', type: :system do
       it '編集完了後に投稿一覧画面へ遷移する' do
         visit edit_post_path(@post)
         attach_file 'post[image]',
-           "./spec/fixtures/images/test.png"
+                    './spec/fixtures/images/test.png'
         fill_in 'post_content', with: '次はB島へ行きます！'
         find('#show-hide-btn').click
         choose 'post_prefecture_沖縄県'
