@@ -1,78 +1,80 @@
+# frozen_string_literal: true
+
 # Userデータ
-user = User.create(name: "アポル",
-                  email: "apple@aaa.com",
-                  password: "password")
-user.icon.attach(io: File.open( "./db/images/icon-apple.png"), filename: "icon-apple.png")
-user = User.create(name: "ツーリ",
-                  email: "tree@ttt.com",
-                  password: "password")
+user = User.create(name: 'アポル',
+                   email: 'apple@aaa.com',
+                   password: 'password')
+user.icon.attach(io: File.open('./db/images/icon-apple.png'), filename: 'icon-apple.png')
+user = User.create(name: 'ツーリ',
+                   email: 'tree@ttt.com',
+                   password: 'password')
 user.icon.attach(io: File.open('./db/images/icon-tree.png'), filename: 'icon-tree.png')
-user = User.create(name: "うさ吉",
-                  email: "rabbit@rrr.com",
-                  password: "password")
+user = User.create(name: 'うさ吉',
+                   email: 'rabbit@rrr.com',
+                   password: 'password')
 user.icon.attach(io: File.open('./db/images/icon-rabbit.png'), filename: 'icon-rabbit.png')
-user = User.create(name: "わんこ",
-                  email: "dog@ddd.com",
-                  password: "password")
+user = User.create(name: 'わんこ',
+                   email: 'dog@ddd.com',
+                   password: 'password')
 user.icon.attach(io: File.open('./db/images/icon-dog.png'), filename: 'icon-dog.png')
-user = User.create(name: "ピナッツー",
-                  email: "peanut@ppp.com",
-                  password: "password")
+user = User.create(name: 'ピナッツー',
+                   email: 'peanut@ppp.com',
+                   password: 'password')
 user.icon.attach(io: File.open('./db/images/icon-peanut.png'), filename: 'icon-peanut.png')
-user = User.create(name: "タイセツ",
-                  email: "money@mmm.com",
-                  password: "password")
-user = User.create(name: "ナンシー",
-                  email: "nashi@nnn.com",
-                  password: "password")
-user = User.create(name: "バード",
-                  email: "bird@bbb.com",
-                  password: "password")
-user = User.create(name: "ニャン",
-                  email: "cat@ccc.com",
-                  password: "password")
+user = User.create(name: 'タイセツ',
+                   email: 'money@mmm.com',
+                   password: 'password')
+user = User.create(name: 'ナンシー',
+                   email: 'nashi@nnn.com',
+                   password: 'password')
+user = User.create(name: 'バード',
+                   email: 'bird@bbb.com',
+                   password: 'password')
+user = User.create(name: 'ニャン',
+                   email: 'cat@ccc.com',
+                   password: 'password')
 user.icon.attach(io: File.open('./db/images/icon-cat.png'), filename: 'icon-cat.png')
 # Postデータ
 post = Post.new(
-  content: "歴史だなぁ。",
-  prefecture: "長崎県",
+  content: '歴史だなぁ。',
+  prefecture: '長崎県',
   user_id: User.first.id
- )
+)
 post.image.attach(io: File.open('./db/images/post-fukue.jpg'), filename: 'post-fukue.jpg')
 post.save!
 post = Post.new(
-  content: "鯛が釣れるとは。。",
-  prefecture: "高知県",
+  content: '鯛が釣れるとは。。',
+  prefecture: '高知県',
   user_id: User.find(2).id
- )
+)
 post.image.attach(io: File.open('./db/images/post-uguru.jpg'), filename: 'post-uguru.jpg')
 post.save!
 post = Post.new(
-  content: "橋がきれい!ここが宮古で一番きれいかも。",
-  prefecture: "沖縄県",
+  content: '橋がきれい!ここが宮古で一番きれいかも。',
+  prefecture: '沖縄県',
   user_id: User.find(3).id
- )
+)
 post.image.attach(io: File.open('./db/images/post-miyako.jpg'), filename: 'post-miyako.jpg')
 post.save!
 post = Post.new(
-  content: "波照間ブルー",
-  prefecture: "沖縄県",
+  content: '波照間ブルー',
+  prefecture: '沖縄県',
   user_id: User.find(4).id
- )
+)
 post.image.attach(io: File.open('./db/images/post-hateruma.jpg'), filename: 'post-hateruma.jpg')
 post.save!
 post = Post.new(
-  content: "向こうに見えるのが淡路島〜",
-  prefecture: "兵庫県",
+  content: '向こうに見えるのが淡路島〜',
+  prefecture: '兵庫県',
   user_id: User.find(5).id
- )
+)
 post.image.attach(io: File.open('./db/images/post-awaji.jpg'), filename: 'post-awaji.jpg')
 post.save!
 post = Post.new(
-  content: "慶良間ブルー",
-  prefecture: "沖縄県",
+  content: '慶良間ブルー',
+  prefecture: '沖縄県',
   user_id: User.find(1).id
- )
+)
 post.image.attach(io: File.open('./db/images/post-aka.jpg'), filename: 'post-aka.jpg')
 post.save!
 # Favoriteデータ
@@ -93,7 +95,7 @@ islands = [
   '大島（伊豆）', '利島', '新島（伊豆）', '式根島', '神津島', '三宅島', '御蔵島', '八丈島', '青ヶ島', '父島', '母島', '硫黄島（小笠原）', '南鳥島',
   '仁右衛門島', '城ヶ島', '江の島',
   # # 中部
-  '粟島（新潟）', '佐渡島', '舳倉島','能登島', '初島', '佐久島','日間賀島', '篠島',
+  '粟島（新潟）', '佐渡島', '舳倉島', '能登島', '初島', '佐久島', '日間賀島', '篠島',
   # # 関西
   '神島', '答志島', '菅島', '坂手島', '渡鹿野島', '間崎島', '賢島', '横山島', '沖島',
   '淡路島', '沼島', '家島', '男鹿島', '坊勢島', '西島', '中の島', '紀伊大島',
@@ -178,43 +180,43 @@ post_island.save!
 comment = Comment.new(
   user_id: User.find(1).id,
   post_id: Post.find(3).id,
-  content: "あの奥に見える橋はなんですか？"
+  content: 'あの奥に見える橋はなんですか？'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(3).id,
   post_id: Post.find(3).id,
-  content: "あれは〇〇です！"
+  content: 'あれは〇〇です！'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(1).id,
   post_id: Post.find(3).id,
-  content: "へー。そうなんですね。。めっちゃ綺麗なんで絶対いきます！"
+  content: 'へー。そうなんですね。。めっちゃ綺麗なんで絶対いきます！'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(3).id,
   post_id: Post.find(3).id,
-  content: "せひぜひ〜"
+  content: 'せひぜひ〜'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(9).id,
   post_id: Post.find(5).id,
-  content: "あそこに行けばうまい玉ねぎが食べれるのか〜"
+  content: 'あそこに行けばうまい玉ねぎが食べれるのか〜'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(3).id,
   post_id: Post.find(6).id,
-  content: "あかじま？って沖縄のどこ？"
+  content: 'あかじま？って沖縄のどこ？'
 )
 comment.save!
 comment = Comment.new(
   user_id: User.find(1).id,
   post_id: Post.find(6).id,
-  content: "本島から西の方にあるんですよ。高速船でだいたい50分くらいです！"
+  content: '本島から西の方にあるんですよ。高速船でだいたい50分くらいです！'
 )
 comment.save!
 # IslandFavoriteデータ

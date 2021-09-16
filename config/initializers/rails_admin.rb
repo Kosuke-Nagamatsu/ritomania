@@ -1,5 +1,6 @@
-RailsAdmin.config do |config|
+# frozen_string_literal: true
 
+RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
@@ -10,11 +11,11 @@ RailsAdmin.config do |config|
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
-  config.authorize_with do |controller|
+  config.authorize_with do |_controller|
     if current_user.nil?
-      redirect_to main_app.new_account_session_path, flash: {error: 'Please Login to Continue..'}
+      redirect_to main_app.new_account_session_path, flash: { error: 'Please Login to Continue..' }
     elsif !current_user.admin?
-      redirect_to main_app.root_path, flash: {error: 'あなたは管理者ではありません！'}
+      redirect_to main_app.root_path, flash: { error: 'あなたは管理者ではありません！' }
     end
   end
 

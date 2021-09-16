@@ -5,7 +5,7 @@ describe 'コメントモデル機能', type: :model do
       it 'バリデーションにひっかる' do
         user = FactoryBot.create(:user)
         post = FactoryBot.create(:post, user_id: user.id)
-        comment = Comment.create( content: "", user_id: user.id, post_id: post.id )
+        comment = Comment.create(content: '', user_id: user.id, post_id: post.id)
         expect(comment).not_to be_valid
       end
     end
@@ -13,7 +13,7 @@ describe 'コメントモデル機能', type: :model do
       it 'バリデーションが通る' do
         user = FactoryBot.create(:user)
         post = FactoryBot.create(:post, user_id: user.id)
-        comment = Comment.create( content: "海がきれいですね！", user_id: user.id, post_id: post.id )
+        comment = Comment.create(content: '海がきれいですね！', user_id: user.id, post_id: post.id)
         expect(comment).to be_valid
       end
     end

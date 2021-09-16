@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateIslandFavorites < ActiveRecord::Migration[5.2]
   def change
     create_table :island_favorites do |t|

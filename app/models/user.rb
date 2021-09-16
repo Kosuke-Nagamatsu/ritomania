@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_one_attached :icon
   has_many :posts, dependent: :destroy
@@ -15,8 +17,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def default_icon
-    if !self.icon.attached?
-      self.icon.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_icon.jpg')), filename: 'default_icon.jpg', content_type: 'image/jpg')
+    unless icon.attached?
+      icon.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_icon.jpg')),
+                  filename: 'default_icon.jpg', content_type: 'image/jpg')
     end
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'tops#index'
   get 'tops/index'
@@ -13,9 +15,9 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: %i[create destroy]
     resources :comments
   end
   resources :favorites, only: [:index]
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end
