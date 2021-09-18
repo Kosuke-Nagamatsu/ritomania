@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'islands/show'
   root 'tops#index'
   get 'tops/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :favorites, only: %i[create destroy]
     resources :comments
+    resources :islands, only: %i[show]
   end
   resources :favorites, only: [:index]
   mount LetterOpenerWeb::Engine, at: '/letter_opener'
