@@ -115,7 +115,7 @@
 		</div>
 		<div class="col-sm-offset-1 col-sm-4 user-wrapper">
 			<p class="history-title"><i class="fa fa-ship paw-deep-gray"></i><span class="shadow shadow-custom">りとう情報</span></p>
-			<% if @user.islands %>
+			<% if @user.islands.present? %>
 			  <div class="list-group text-center">
 					<% @user.islands.each do |island| %>
 					  <%= link_to island.name, island_path(island), class: "list-group-item" %>

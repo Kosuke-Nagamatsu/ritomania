@@ -203,7 +203,7 @@ li.list-time {
 }
 // 投稿詳細ページ
 .show-box {
-  margin: 25px 0;
+  padding-top: 25px;
 }
 .show-content {
   padding: 10px 10px 10px 10px;
@@ -215,8 +215,27 @@ li.list-time {
 .items {
   padding-top: 10px;
 }
+.island-box {
+    position: relative;
+    margin: 2.5em 0;
+    padding: 0.9em 1em 0.3em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+}
+.island-box .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 18px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
 .right-wrapper {
-  margin-top: 30px;
+  padding-top: 32px;
 }
 #comments_area {
   padding: 15px;

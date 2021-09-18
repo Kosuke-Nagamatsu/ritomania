@@ -27,12 +27,15 @@
           <% end %></li>
         <% end %>
       </ul>
-      <% if @post.islands %>
-        <ul class="list-inline">
-          <% @post.islands.each do |island| %>
-            <li><%= link_to island.name, island_path(island) %></li>
-          <% end %>
-        </ul>
+      <% if @post.islands.present? %>
+        <div class="island-box">
+          <span class="box-title">りとう情報はこちら</span>
+          <ul class="list-inline">
+            <% @post.islands.each do |island| %>
+              <li><%= link_to island.name, island_path(island) %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
     </div>
     <div class="right-wrapper col-sm-offset-1 col-sm-6">
