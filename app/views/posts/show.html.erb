@@ -14,19 +14,26 @@
         <% end %>
       </ul>
       <p class="show-content"><%= @post.content %></p>
+      <ul class="list-inline">
+        <li class="favorite-btn" id="favorite-btn-<%= @post.id %>">
+          <%= render partial: 'favorites/favorite', locals: { post: @post } %>
+        </li>
+        <% if @post.user == current_user %>
+          <li><%= link_to edit_post_path(@post) do %>
+            <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
+          <% end %></li>
+          <li><%= link_to post_path, method: :delete, data: { confirm: "本当に削除しますか?"} do %>
+            <i class="fa fa-trash-o fa-lg" id="test-id"></i><span class="awesome-icon"></span>
+          <% end %></li>
+        <% end %>
+      </ul>
+      <% if @post.islands %>
         <ul class="list-inline">
-          <li class="favorite-btn" id="favorite-btn-<%= @post.id %>">
-            <%= render partial: 'favorites/favorite', locals: { post: @post } %>
-          </li>
-          <% if @post.user == current_user %>
-            <li><%= link_to edit_post_path(@post) do %>
-              <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
-            <% end %></li>
-            <li><%= link_to post_path, method: :delete, data: { confirm: "本当に削除しますか?"} do %>
-              <i class="fa fa-trash-o fa-lg" id="test-id"></i><span class="awesome-icon"></span>
-            <% end %></li>
+          <% @post.islands.each do |island| %>
+            <li><%= link_to island.name, post_island_path(@post, island) %></li>
           <% end %>
         </ul>
+      <% end %>
     </div>
     <div class="right-wrapper col-sm-offset-1 col-sm-6">
       <h2 class="post-sub-header label label-default">
@@ -36,10 +43,10 @@
           <%= "#{@post.user.name}さんへコメントしてみよう！" %>
         <% end %>
       </h2>
-      <div id="comments_area">
-        <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
-      </div>
-        <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+    </div>
+      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     </div>
   </div>
   <%= link_to posts_path do %>

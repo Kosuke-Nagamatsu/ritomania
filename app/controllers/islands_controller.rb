@@ -1,7 +1,7 @@
 class IslandsController < ApplicationController
   before_action :set_post, only: %i[show]
   def show
-    @comment = @post.islands.params[:id]
+    @island = @post.islands.find(params[:id])
   end
 
   private
