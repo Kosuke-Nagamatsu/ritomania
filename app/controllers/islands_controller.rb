@@ -1,12 +1,11 @@
 class IslandsController < ApplicationController
-  before_action :set_post, only: %i[show]
+  before_action :set_island, only: %i[show]
   def show
-    @island = @post.islands.find(params[:id])
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:post_id])
+  def set_island
+    @island = Island.find(params[:id])
   end
 end

@@ -30,7 +30,7 @@
       <% if @post.islands %>
         <ul class="list-inline">
           <% @post.islands.each do |island| %>
-            <li><%= link_to island.name, post_island_path(@post, island) %></li>
+            <li><%= link_to island.name, island_path(island) %></li>
           <% end %>
         </ul>
       <% end %>

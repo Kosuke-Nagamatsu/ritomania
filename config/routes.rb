@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     end
     resources :favorites, only: %i[create destroy]
     resources :comments
-    resources :islands, only: %i[show]
   end
   resources :favorites, only: [:index]
+  resources :islands, only: %i[show]
   mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end
