@@ -37,15 +37,25 @@
     </ul>
 	</div>
 </div>
-<div class="container flexbox-center">
-  <div class="actions">
-    <%= link_to t('view.edit_profile'), edit_user_registration_path, class: 'btn btn-default' %>
-  </div>
-</div>
-<div class="flexbox-center">
-  <div>
-    <p class="history-title"><i class="fa fa-paw paw-deep-gray"></i><span class="shadow shadow-custom">おもいで</span></p>
-    <% if @user.posts.present? %>
+<div class="container">
+	<div class="row">
+		<div class="actions">
+			<%= link_to t('view.edit_profile'), edit_user_registration_path, class: 'btn btn-default' %>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-sm-2">
+		<% if @user.islands %>
+			<ul class="list-group">
+				<% @user.islands.each do |island| %>
+					<li class="list-group-item"><%= link_to island.name, island_path(island) %></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+  <div class="col-sm-offset-1 col-sm-9">
+		<p class="history-title"><i class="fa fa-paw paw-deep-gray"></i><span class="shadow shadow-custom">おもいで</span></p>
+		<% if @user.posts.present? %>
 			<div class="contents contents-user">
 	      <% @user.posts.each do |post| %>
 	        <div class="main-content">
@@ -112,4 +122,5 @@
 	    </div>
 		<% end %>
   </div>
+	</div>
 </div>
