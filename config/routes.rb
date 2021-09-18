@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'islands/show'
   root 'tops#index'
   get 'tops/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
