@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div class="arc-area text-center">
     <ul class="icon-area list-inline">
-      <li><%= image_tag @user.icon.variant(combine_options:{gravity: :center, resize:'80x80',border:'2',bordercolor:'white'}), class:'img-circle' if @user.icon.attached? %></li>
+      <li><%= image_tag @user.icon.variant(gravity: 'Center', resize: '80x80'), class:'img-circle' if @user.icon.attached? %></li>
       <% if @user.islands.present? %>
         <li class="favorite-islands">
           <p><span class="shadow">Like!</span>
