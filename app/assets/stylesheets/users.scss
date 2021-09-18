@@ -16,6 +16,9 @@ overflow: hidden;
   padding: 15px 0 0 0;
   margin: 0;
 }
+.icon-area img {
+  border: 2px solid #fff;
+}
 .profile-area {
   padding: 15px 0;
   margin: 0;
@@ -67,12 +70,16 @@ overflow: hidden;
   padding-left: 6px;
   padding-right: 6px;
 }
-.history-title {
-  margin-top: 20px;
+.user-wrapper {
+  margin-top: 40px;
 }
-.contents-user {
+.history-title {
+  font-size: 1.2em;
+  padding-bottom: 10px;
+}
+.user-contents {
   background-color: rgba(212, 212, 212, 0.2);
-  width: 420px;
+  width: 100%;
   height: 500px;
   padding: 15px;
   margin-top: 0;
