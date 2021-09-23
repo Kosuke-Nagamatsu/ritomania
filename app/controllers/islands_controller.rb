@@ -3,7 +3,6 @@ class IslandsController < ApplicationController
   def show
     gon.api_key = ENV["OPEN_WEATHER_MAP_API_KEY"]
     gon.city_id = @island.city_id
-    binding.pry
   end
 
   private

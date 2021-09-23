@@ -10,7 +10,7 @@ $(function() {
   })
   .done(function(data) {
     var insertHTML = "";
-    var cityName = '<h2>' + data.city.name + '</h2>';
+    var cityName = '<h2 class="city-name">' + data.city.name + '</h2>';
     $('#city-name').html(cityName);
 
     // 最初のデータから6時間ごとに天気を取り出すよう処理を繰り返す
@@ -35,11 +35,11 @@ function buildHTML(data, i) {
   // JSONデータから天気名の値を取り出し日本語化する
   var mainWeather = translate(data.list[i].weather[0].main)
   var html =
-  '<div class="weather-report">' +
-    '<div class=""><img src="https://openweathermap.org/img/w/' + icon + '.png"></div>' +
-    '<div class="">' +
+  '<div class="weather-report flexbox-center">' +
+    '<div class="weather-content"><img src="https://openweathermap.org/img/w/' + icon + '.png"></div>' +
+    '<div class="weather-content weather-content-custom">' +
       '<div class="weather-date">' + day + '</div>' +
-      '<div class="">' +
+      '<div class="flexbox-space-around">' +
         '<div class="weather-main">'+ mainWeather + '</div>' +
         '<div class="weather-temp">' + Math.round(data.list[i].main.temp) + '℃</div>' +
       '</div>' +
