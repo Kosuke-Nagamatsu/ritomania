@@ -16,7 +16,7 @@ RSpec.describe '旅の思い出CRUD機能', type: :system do
         choose 'post_prefecture_北海道'
         click_button '投稿する'
         click_button '投稿する'
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
         expect(page).to have_content 'A島に行きました'
         expect(page).to have_content '北海道'
       end
@@ -55,7 +55,7 @@ RSpec.describe '旅の思い出CRUD機能', type: :system do
         find('#show-hide-btn').click
         choose 'post_prefecture_沖縄県'
         click_button '更新する'
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
         expect(page).to have_content '次はB島へ行きます！'
         expect(page).to have_content '沖縄県'
         expect(page).to have_content 'A島'
@@ -75,7 +75,7 @@ RSpec.describe '旅の思い出CRUD機能', type: :system do
         visit post_path(@post)
         find('#test-id').click
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
         expect(page).not_to have_content '離島へ行こう！'
       end
     end

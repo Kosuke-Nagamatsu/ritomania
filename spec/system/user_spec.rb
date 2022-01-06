@@ -23,7 +23,7 @@ RSpec.describe 'ユーザ機能', type: :system do
         fill_in 'user_email', with: 'ritotaro@example.com'
         fill_in 'user_password', with: 'password'
         click_button 'ログイン'
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
       end
     end
     context 'ログアウトした場合' do
@@ -42,14 +42,14 @@ RSpec.describe 'ユーザ機能', type: :system do
       it 'ログインが完了し、投稿一覧画面へ遷移する' do
         visit new_user_session_path
         click_link 'ゲストログイン'
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
       end
     end
     context '管理者ゲストログインボタン押下' do
       it 'ログインが完了し、投稿一覧画面へ遷移する' do
         visit new_user_session_path
         click_link '管理者ゲストログイン'
-        expect(page).to have_content '気になる離島を見つけてみよう！'
+        expect(page).to have_content '気になる離島を見つけよう！'
       end
     end
   end
