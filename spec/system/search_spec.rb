@@ -7,10 +7,26 @@ RSpec.describe '投稿の検索機能', type: :system do
       click_link 'ゲストログイン'
     end
     context '投稿本文で検索する場合' do
-      it '検索内容を含む投稿のみ表示される' do
+      it '検索内容を含む投稿が表示される' do
         visit posts_path
         fill_in 'q_content_or_comments_content_cont', with: '離島へいこう！'
         find('.test').click
+        expect(page).to have_content '離島へいこう！'
+        expect(page).to have_content '沖縄県'
+        expect(page).to have_content 'A島'
+      end
+    end
+  end
+  describe 'あいまい検索機能（検索ボタンを押す前の自動検索）' do
+    before do
+      @post = FactoryBot.create(:post)
+      visit new_user_session_path
+      click_link 'ゲストログイン'
+    end
+    context '入力フォームへ入力する場合' do
+      it '検索内容を含む投稿が表示される' do
+        visit posts_path
+        fill_in 'q_content_or_comments_content_cont', with: '離島へいこう！'
         expect(page).to have_content '離島へいこう！'
         expect(page).to have_content '沖縄県'
         expect(page).to have_content 'A島'
@@ -24,7 +40,7 @@ RSpec.describe '投稿の検索機能', type: :system do
         visit new_user_session_path
         click_link 'ゲストログイン'
       end
-      it '検索内容を含む投稿のみ表示される' do
+      it '検索内容を含む投稿が表示される' do
         select 'A島', from: 'q[islands_id_eq]'
         find('.test').click
         expect(page).to have_content '離島へいこう！'
@@ -33,17 +49,48 @@ RSpec.describe '投稿の検索機能', type: :system do
       end
     end
   end
-  describe '都道府県名検索機能' do
+  describe '離島名で検索機能（検索ボタンを押す前の自動検索）' do
+    context '離島名を選択する場合' do
+      before do
+        @post = FactoryBot.create(:post)
+        visit new_user_session_path
+        click_link 'ゲストログイン'
+      end
+      it '検索内容を含む投稿が表示される' do
+        select 'A島', from: 'q[islands_id_eq]'
+        expect(page).to have_content '離島へいこう！'
+        expect(page).to have_content '沖縄県'
+        expect(page).to have_content 'A島'
+      end
+    end
+  end
+  describe '都道府県名で検索機能' do
     before do
       @post = FactoryBot.create(:post)
       visit new_user_session_path
       click_link 'ゲストログイン'
     end
     context '都道府県名で検索する場合' do
-      it '検索内容を含む投稿のみ表示される' do
+      it '検索内容を含む投稿が表示される' do
         find('#show-hide-btn').click
         choose 'q_prefecture_eq_47'
-        find('.test2').click
+        find('.test').click
+        expect(page).to have_content '離島へいこう！'
+        expect(page).to have_content '沖縄県'
+        expect(page).to have_content 'A島'
+      end
+    end
+  end
+  describe '都道府県名で検索機能（検索ボタンを押す前の自動検索）' do
+    before do
+      @post = FactoryBot.create(:post)
+      visit new_user_session_path
+      click_link 'ゲストログイン'
+    end
+    context '都道府県名を選択する場合' do
+      it '検索内容を含む投稿が表示される' do
+        find('#show-hide-btn').click
+        choose 'q_prefecture_eq_47'
         expect(page).to have_content '離島へいこう！'
         expect(page).to have_content '沖縄県'
         expect(page).to have_content 'A島'
