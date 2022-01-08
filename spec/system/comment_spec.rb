@@ -10,7 +10,7 @@ RSpec.describe 'コメント機能', type: :system do
       it 'コメントを投稿すると詳細ページに表示される' do
         visit post_path(@post)
         fill_in 'comment[content]', with: 'コメントテスト'
-        click_button '投稿する'
+        click_button '送信'
         expect(page).to have_content 'コメントテスト'
       end
     end

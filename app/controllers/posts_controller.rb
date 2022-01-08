@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @q.sorts = 'created_at desc'
     @posts = @q.result(distinct: true)
     @posts = Island.find(params[:format]).posts if params[:search_island]
+    @post = Post.new
   end
 
   def show
@@ -16,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
   end
 
   def edit
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
+        format.html { redirect_to posts_path, notice: '更新しました！' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end

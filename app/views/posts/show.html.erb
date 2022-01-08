@@ -1,6 +1,7 @@
 <h1 class="bg-info text-center main-header">投稿詳細</h1>
 <div class="container">
   <div class="row">
+    <!-- 投稿詳細エリア -->
     <div class="col-sm-5 show-box">
       <%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class:'main-image' if @post.image.attached? %>
       <ul class="list-inline items">
@@ -14,19 +15,38 @@
         <% end %>
       </ul>
       <p class="show-content"><%= @post.content %></p>
-      <ul class="list-inline">
+      <ul class="flexbox-space-between">
         <li class="favorite-btn" id="favorite-btn-<%= @post.id %>">
           <%= render partial: 'favorites/favorite', locals: { post: @post } %>
         </li>
         <% if @post.user == current_user %>
-          <li><%= link_to edit_post_path(@post) do %>
-            <i class="fa fa-edit fa-lg"></i><span class="awesome-icon"></span>
-          <% end %></li>
-          <li><%= link_to post_path, method: :delete, data: { confirm: "本当に削除しますか?"} do %>
-            <i class="fa fa-trash-o fa-lg" id="test-id"></i><span class="awesome-icon"></span>
-          <% end %></li>
+          <li>
+            <ul class="list-inline">
+              <!-- モーダルリンク -->
+              <li><a class="link-modal" data-toggle="modal" data-target="#editPostModal"><i class="fa fa-edit fa-lg"></i></a></li>
+              <li>
+                <%= link_to post_path, method: :delete, data: { confirm: "本当に削除しますか?"} do %>
+                  <i class="fa fa-trash-o fa-lg"></i><span class="awesome-icon"></span>
+                <% end %>
+              </li>
+            </ul>
+          </li>
         <% end %>
       </ul>
+      <!-- モーダル内容 -->
+      <div class="modal fade" id="editPostModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+              <h4 class="modal-title text-center">投稿を編集する</h4>
+            </div>
+            <div class="modal-body">
+              <%= render 'form', post: @post %>
+            </div>
+          </div>
+        </div>
+      </div>
       <% if @post.islands.present? %>
         <div class="island-box">
           <span class="box-title">りとう情報はこちら</span>
@@ -38,6 +58,7 @@
         </div>
       <% end %>
     </div>
+    <!-- コメントエリア -->
     <div class="right-wrapper col-sm-offset-1 col-sm-6">
       <h2 class="post-sub-header label label-default">
         <% if @post.user == current_user %>
@@ -46,9 +67,9 @@
           <%= "#{@post.user.name}さんへコメントしてみよう！" %>
         <% end %>
       </h2>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
-    </div>
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+      </div>
       <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     </div>
   </div>

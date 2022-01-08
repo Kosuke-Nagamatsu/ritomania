@@ -1,57 +1,57 @@
-<div class="form-group flexbox-center">
-  <div class="post-form">
-    <%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
-      <% if post.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(post.errors.count, t('activerecord.errors.messages.prohibited_this_model_from_being_saved')) %></h2>
-          <ul>
-            <% post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="field">
-        <%= form.label '思い出の写真を投稿しよう！' %>
-        <%= form.file_field :image %>
+<div class="post-form">
+  <%= form_with(model: post, local: true, url: choose_new_or_edit) do |form| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2 class="alert alert-warning"><%= pluralize(post.errors.count, t('activerecord.errors.messages.prohibited_this_model_from_being_saved')) %></h2>
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li class="alert alert-danger"><%= message %></li>
+          <% end %>
+        </ul>
       </div>
-      <div class="field">
-        <%= form.label :content %>
-        <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
-      </div>
-      <p class="field-title">どこへの旅ですか？<span class="label label-success button" id="show-hide-btn">都道府県を表示</span></p>
-      <div class="prefecture-field">
+    <% end %>
+    <div class="form-group">
+      <%= form.label '写真' %><small class="required-label">必須</small>
+      <%= form.file_field :image %>
+    </div>
+    <div class="form-group">
+      <%= form.label :content %><small class="required-label">必須</small>
+      <%= form.text_area :content, class: "form-control", placeholder: t('view.content_area') %>
+    </div>
+    <div class="form-group">
+      <%= form.label :'離島名（複数選択可）' %><small class="optional-label">任意</small>
+      <%= form.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %>
+    </div>
+    <div class="form-group">
+      <span class="label label-default label-button" id="post-show-hide-btn">都道府県を選択</span><small class="optional-label">任意</small>
+      <div class="post-prefecture-field">
         <% Post.prefectures.each do |prefecture| %>
           <% if prefecture[0] == "北海道" %>
-            <p class="area-title">北海道・東北</p>
+            <p>北海道・東北</p>
           <% elsif prefecture[0] == "茨城県" %>
-            <p class="area-title">関東</p>
+            <p>関東</p>
           <% elsif prefecture[0] == "新潟県" %>
-            <p class="area-title">中部</p>
+            <p>中部</p>
           <% elsif prefecture[0] == "三重県" %>
-            <p class="area-title">関西</p>
+            <p>関西</p>
           <% elsif prefecture[0] == "鳥取県" %>
-            <p class="area-title">中国</p>
+            <p>中国</p>
           <% elsif prefecture[0] == "徳島県" %>
-            <p class="area-title">四国</p>
+            <p>四国</p>
           <% elsif prefecture[0] == "福岡県" %>
-            <p class="area-title">九州・沖縄</p>
+            <p>九州・沖縄</p>
           <% end %>
-          <%= form.label :prefecture, prefecture[0] %>
+          <%= form.label :prefecture, prefecture[0], class: "radio-inline" %>
           <%= form.radio_button :prefecture, prefecture[0] %>
         <% end %>
       </div>
-      <div class="field">
-        <%= form.label :'離島名（複数可）' %>
-        <%= form.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %>
-      </div>
-      <div class="actions">
-        <% if action_name == "new" %>
-          <%= form.submit t('view.post_to') %>
-        <% else %>
-          <%= form.submit %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="actions">
+      <%= form.submit t('view.post_to'), class: "btn btn-primary btn-block" %>
+      <!-- モーダルの時だけ表示 -->
+      <% if action_name == 'index' || action_name == 'show' %>
+        <button type="button" class="btn btn-default btn-block" data-dismiss="modal">閉じる</button>
+      <% end %>
+    </div>
+  <% end %>
 </div>
