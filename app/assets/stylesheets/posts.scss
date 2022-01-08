@@ -138,6 +138,34 @@ footer {
   }
 }
 
+.prefecture-field, .post-prefecture-field {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1em;
+  display: none;
+  
+  p {
+    color: #555;
+    border-bottom: 1px dotted #666;
+    font-weight: bold;
+    padding-top: 0.7em;
+  }
+
+  label {
+    color: #777;
+  }
+  
+  .radio-inline {
+    margin-bottom: 0.4em;
+  }
+}
+
+.label-button:hover {
+  opacity: 0.6;
+  cursor:pointer;
+}
+
 .main-header {
   padding: 10px;
   font-size: 28px;
@@ -184,80 +212,144 @@ footer {
   }
 }
 
+// 新規投稿と編集フォームのパーシャル
+.post-form {
+  margin: 1.5em 0;
+  
+  #error_explanation {
+    .alert {
+      margin-bottom: 5px;
+    }
+    
+    ul {
+      .alert {
+        padding: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .form-group {
+    margin-top: 1.4em;
+
+    .required-label {
+      color: #ff0000;
+      margin-left: 0.5em;
+    }
+
+    .optional-label {
+      color: #777;
+      margin-left: 0.5em;
+    }
+
+    .select2-container {
+      .select2-search__field {
+        margin-top: 0;
+      }
+    }
+  }
+}
+// パーシャルと投稿確認フォームの送信ボタン
+.post-form, .confirm-form {
+  .actions {
+    margin-top: 1.6em;
+    
+    .btn {
+      margin-top: 0.4em;
+    }
+  }
+}
+
+// モーダル（新規投稿と編集フォームで使用）
+.modal {
+  .modal-header {
+    background: -moz-linear-gradient(left, rgba(253, 219, 146, 1) 60%, rgba(209, 253, 254, 1));
+    background: -webkit-linear-gradient(left, rgba(253, 219, 146, 1) 60%, rgba(209, 253, 254, 1));
+    background: linear-gradient(to right, rgba(253, 219, 146, 1) 60%, rgba(209, 253, 254, 1));
+
+    .modal-title {
+      color: #888;
+    }
+  }
+}
+// ---------- ここまでが共通 ----------
+
+
 // 投稿一覧ページ
 .bg-posts-index {
   background-color: rgba(212, 212, 212, 0.1);
   min-height: 100%;
-
-    // 検索フォーム
-    .search-form-contents {
-      margin-top: 1.5em;
-      margin-bottom: 2.5em;
+  
+  // 検索フォーム
+  .search-form-contents {
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+    
+    .btn-modal {
+      color: #777;
+      border-color: #c0c0c0;
+      background-color: #fff;
+      border-radius: 50rem;
+    }
+    .btn-modal:hover{
+      color: #fff;
+      background-color: #c0c0c0;
+    }
+    
+    .post_search {
+      background-color: #fff;
+      border: 3px double #ccc;
+      padding: 1.6em;
+      margin-top: 1.2em;
       
-      .post_search {
-        background-color: #fff;
-        border: 3px double #ccc;
-        padding: 1.6em;
+      p {
+        margin-bottom: 1.2em;
         
-        p {
-          margin-bottom: 1.2em;
-          
-          .form-title {
-            padding-bottom: 0.1em;
-            border-bottom: 1px solid #ccc;
-          }
+        .form-title {
+          padding-bottom: 0.1em;
+          border-bottom: 1px solid #ccc;
         }
-
-        .label-button:hover {
-          opacity: 0.6;
-          cursor:pointer;
-        }
-
-        .prefecture-field {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 1em;
-            display: none;
-
-          p {
-            color: #555;
-            border-bottom: 1px dotted #666;
-            font-weight: bold;
-            padding-top: 0.7em;
-          }
-
-          label {
-            color: #777;
-          }
-
-          .radio-inline {
-            margin-bottom: 0.4em;
-          }
-        }
-
-        .search-btn {
-          padding-top: 1.4em;
-
-          input {
-            width: 40%;
+      }
+      
+      // 離島名を選択後、取り消しボタン「×」が押し辛いため余白で調整
+      .select2-container--default {
+        .select2-selection--single {
+          .select2-selection__clear {
+            margin-right: 0.5em;
           }
         }
       }
-    }
-
-    // 投稿一覧
-    .post-contents {
-      margin-top: 1.5em;
-
-      .main-content {
-        .list-time {
-          color: rgba(0, 0, 0, 0.3);
-          margin-left: 10px;
-        } 
+      
+      .search-btn {
+        padding-top: 1.4em;
+        
+        input {
+          width: 40%;
+        }
       }
     }
+  }
+  
+  // 投稿一覧
+  .post-contents {
+    margin-top: 1.5em;
+    
+    .main-content {
+      .list-time {
+        color: rgba(0, 0, 0, 0.3);
+        margin-left: 10px;
+      }
+    }
+  }
 }
+
+// 投稿確認ページ
+.confirm-form {
+  .single-line-content {
+    margin-left: 0.5em;
+  }
+}
+
 
 // 投稿詳細ページ
 .show-box {
@@ -302,6 +394,12 @@ footer {
   padding-top: 32px;
   padding-bottom: 25px;
 }
+.right-wrapper .actions input {
+  width: 50%;
+}
+.post-sub-header {
+  font-size: 1.3em;
+}
 #comments_area {
   padding: 15px;
   margin-top: 20px;
@@ -328,25 +426,4 @@ footer {
 }
 .icon-paragraph {
   margin: 0;
-}
-// 投稿新規・編集ページ
-.post-form {
-  width: 650px;
-  padding: 20px;
-}
-.post-sub-header {
-  font-size: 1.3em;
-}
-.field-title {
-  font-weight: bold;
-  margin-top: 10px;
-}
-.actions {
-  margin: 10px 0;
-}
-.right-wrapper .actions input {
-  width: 50%;
-}
-.post-form .actions input {
-  width: 100px;
 }

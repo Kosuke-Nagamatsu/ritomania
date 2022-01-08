@@ -18,11 +18,11 @@ ja:
     log_in: ログイン
     guest_log_in: ゲストログイン
     admin_guest_log_in: 管理者ゲストログイン
-    post_to: 投稿する
+    post_to: 送信
     user_name_sample: 例）りとう たろう
     all_comments: すべてのコメントを見る
     comment_content: コメント内容
-    content_area: ここに本文を記入してください
+    content_area: 本文を入力してください
     comment_content_area: ここにコメントを記入してください
   activerecord:
     errors:
