@@ -1,20 +1,22 @@
-<div class="container flexbox-center">
- <div class="contents">
-  <h3>以下の内容で、送信する。</h3>
-  <%= form_with(model: @post, local: true, url: posts_path) do |form| %>
-    <%= form.hidden_field :image, value: form.object.image.signed_id %>
-    <%= form.hidden_field :content %>
-    <%= form.hidden_field :prefecture %>
-    <% if @post.image.attached? %>
-      <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class: "main-image" %></p>
-    <% end %>
-    <p><b>本文：</b><%= @post.content %></p>
-    <p><b>どこへの旅ですか？</b></p>
-    <p><b>都道府県：</b><%= @post.prefecture %></p>
-    <p><b>離島：</b><%= form.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %></p>
-    <div class="actions">
-      <%= form.submit t('view.back'), name: 'back' %><%= form.submit t('view.post_to') %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 confirm-form">
+      <h3>以下の内容で、送信する。</h3>
+      <%= form_with(model: @post, local: true, url: posts_path) do |form| %>
+        <%= form.hidden_field :image, value: form.object.image.signed_id %>
+        <%= form.hidden_field :content %>
+        <%= form.hidden_field :prefecture %>
+        <% if @post.image.attached? %>
+          <p><%= image_tag @post.image.variant(gravity: 'Center', resize: '400x500'), class: "main-image" %></p>
+        <% end %>
+        <b>本文：</b><p><%= @post.content %></p>
+        <b>離島：</b><p><%= form.collection_select :island_ids, Island.all, :id, :name, { prompt: ''}, { class: 'select2', multiple: true } %></p>
+        <p><b>都道府県：</b><span class="single-line-content"><%= @post.prefecture %></span></p>
+        <div class="actions">
+          <%= form.submit t('view.post_to'), class: "btn btn-primary btn-block" %>
+          <%= form.submit t('view.back'), name: 'back', class: "btn btn-default btn-block" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
 </div>
