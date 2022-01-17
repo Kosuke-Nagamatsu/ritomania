@@ -1,6 +1,8 @@
 # README
 <img width="369" alt="スクリーンショット 2021-09-25 23 27 30" src="https://user-images.githubusercontent.com/83779040/134775071-6b6f692d-6cb2-4d06-99a1-38efc782f9b1.png">
 
+URL： [https://limitless-beyond-47766.herokuapp.com](https://limitless-beyond-47766.herokuapp.com)
+
 ## コンセプト
 旅人による離島を知りたい人のためのSNS
 
@@ -28,7 +30,8 @@
     - gem 'gon'
 
 ## その他技術
-- Ajax（コメント機能・お気に入り機能・天気予報機能）
+- Ajax（検索機能、コメント機能・お気に入り機能・天気予報機能）
+- OpenWeatherMap（天気予報機能）
 
 ## 実行手順
 ```
@@ -53,4 +56,4 @@ $ rails s
 <img width="832" alt="スクリーンショット 2021-09-25 21 17 02" src="https://user-images.githubusercontent.com/83779040/134773172-f5b99fc2-47fc-43ed-8ca8-ee650a450990.png">
 
 ## 画面遷移図
-<img width="1297" alt="スクリーンショット 2021-08-06 19 22 40" src="https://user-images.githubusercontent.com/83779040/128496969-8b836112-0d1e-4315-ab14-143d59779d0d.png">
+<img width="1189" alt="スクリーンショット 2022-01-17 18 09 39" src="https://user-images.githubusercontent.com/83779040/149740720-520c8829-4749-46b1-98a9-a67ffe34da50.png">
