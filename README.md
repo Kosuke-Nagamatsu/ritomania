@@ -30,7 +30,7 @@ URL： [https://limitless-beyond-47766.herokuapp.com](https://limitless-beyond-4
     - gem 'gon'
 
 ## その他技術
-- Ajax（検索機能、コメント機能・お気に入り機能・天気予報機能）
+- Ajax（検索機能, コメント機能, お気に入り機能, 天気予報機能）
 - OpenWeatherMap（天気予報機能）
 
 ## 実行手順
@@ -56,4 +56,4 @@ $ rails s
 <img width="832" alt="スクリーンショット 2021-09-25 21 17 02" src="https://user-images.githubusercontent.com/83779040/134773172-f5b99fc2-47fc-43ed-8ca8-ee650a450990.png">
 
 ## 画面遷移図
-<img width="1189" alt="スクリーンショット 2022-01-17 18 09 39" src="https://user-images.githubusercontent.com/83779040/149740720-520c8829-4749-46b1-98a9-a67ffe34da50.png">
+<img width="1203" alt="スクリーンショット 2022-01-18 10 44 09" src="https://user-images.githubusercontent.com/83779040/149856447-5a683a63-dcf8-47d4-93e5-37c62d99cc6f.png">
