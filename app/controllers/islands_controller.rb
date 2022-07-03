@@ -1,8 +1,14 @@
 class IslandsController < ApplicationController
   before_action :set_island, only: %i[show]
+
   def show
-    gon.api_key = ENV["OPEN_WEATHER_MAP_API_KEY"]
-    gon.city_id = @island.city_id
+    weather_reports = @island.weather_reports
+    if weather_reports
+      @city_name = weather_reports[:city_name]
+      @weathers = weather_reports[:weathers]
+    else
+      flash.now[:alert] = '天気予報を表示できませんでした'
+    end
   end
 
   private
