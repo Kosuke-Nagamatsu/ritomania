@@ -26,12 +26,11 @@ URL： [https://limitless-beyond-47766.herokuapp.com](https://limitless-beyond-4
     - gem 'aws-sdk-s3'
 - 検索機能
     - gem 'ransack'
-- 天気予報機能
-    - gem 'gon'
 
 ## その他技術
-- Ajax（検索機能, コメント機能, お気に入り機能, 天気予報機能）
+- Ajax（検索機能, コメント機能, お気に入り機能）
 - OpenWeatherMap（天気予報機能）
+[天気予報機能について](weathers/README.md)
 
 ## 実行手順
 ```
