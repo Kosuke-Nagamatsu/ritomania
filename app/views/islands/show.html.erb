@@ -1,15 +1,23 @@
 <h1><%= @island.name %></h1>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 text-center left-wrapper">
-      <div id="city-name">
-
-      </div>
-      <div id="weather">
-
-      </div>
-    </div>
-
+    <% if @weathers %>
+      <section class="col-md-4 text-center weathers">
+        <h2 class="weathers-title"><%= @city_name %></h2>
+        <% @weathers.each do |weather| %>
+          <div class="weathers-body flexbox-center">
+            <div class="weathers-body-item"><img alt="weather icon image" src="https://openweathermap.org/img/w/<%= weather[:icon] %>.png"></div>
+            <div class="weathers-body-item item-text">
+              <div class="weather-date"><%= weather[:date] %></div>
+              <div class="flexbox-space-around">
+                <div class="weather-main"><%= weather[:main] %></div>
+                <div class="weather-temp"><%= "#{weather[:temp]}℃" %></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
     <div class="jumbotron text-center col-md-offset-1 col-md-7">
       <p>今後更新予定です。</p>
     </div>
