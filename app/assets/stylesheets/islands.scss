@@ -1,25 +1,33 @@
-.left-wrapper {
+.weathers {
   border: 1px solid rgba(216, 215, 215, 0.7);
   border-radius: 8px;
   padding-top: 15px;
   padding-bottom: 15px;
-}
-.city-name {
-  font-size: 1.4em;
-  font-style: italic;
-  color: #555;
-  letter-spacing: 0.05em;
-}
-.weather-report {
-  background-color: rgba(0, 230, 180, 0.2);
-  padding: 10px;
-  margin: 25px 0;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 230, 180, 0.3);
-}
-.weather-content {
-  padding: 0 15px;
-}
-.weather-content-custom {
-  padding-top: 8px;
+
+  .weathers-tilte {
+    font-size: 1.4em;
+    font-style: italic;
+    color: #555;
+    letter-spacing: 0.05em;
+  }
+
+  .weathers-body {
+    background-color: rgba(0, 230, 180, 0.2);
+    padding: 10px;
+    margin: 25px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 230, 180, 0.3);
+
+    .weathers-body-item {
+      padding: 0 15px;
+    }
+
+    .item-text {
+      padding-top: 8px;
+
+      .weather-date, .weather-main, .weather-temp {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
