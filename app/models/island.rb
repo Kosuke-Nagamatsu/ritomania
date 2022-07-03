@@ -23,7 +23,10 @@ class Island < ApplicationRecord
 
     # GETリクエストを送り、レスポンスを受け取る
     uri = URI("https://api.openweathermap.org/data/2.5/forecast?#{query}")
-    res = Net::HTTP.get_response(uri)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    req = Net::HTTP::Get.new(uri.request_uri)
+    res = http.request(req)
 
     # リクエスト成功の場合、文字列のjsonをハッシュに変換し、欲しいデータ（city_nameとweathers）を用意し返す
     if res.is_a?(Net::HTTPSuccess)
@@ -31,7 +34,6 @@ class Island < ApplicationRecord
       lists = res_body['list']
       city_name = res_body['city']['name']
       weathers = []
-      binding.pry
 
       lists.each_with_index do |list, i|
         if i.even? && i <= 8
