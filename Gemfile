@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
 
-gem 'aws-sdk-s3', require: false
+gem "google-cloud-storage", "~> 1.11", require: false
 gem 'image_processing'
 gem 'mini_magick'
 
