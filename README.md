@@ -20,10 +20,10 @@ URL： [https://limitless-beyond-47766.herokuapp.com](https://limitless-beyond-4
 - 管理者機能
     - gem 'rails_admin'
     - gem 'cancancan'
-- 画像アップロード（ActiveStorage）・本番環境のストレージ
+- 画像アップロード（ActiveStorage）
     - gem 'mini_magick'
     - gem 'image_processing'
-    - gem 'aws-sdk-s3'
+    - gem 'google-cloud-storage'
 - 検索機能
     - gem 'ransack'
 
