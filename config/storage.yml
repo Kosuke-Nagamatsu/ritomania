@@ -15,11 +15,17 @@ amazon:
   bucket: ritomania-production
 
 # Remember not to checkin your GCS keyfile to a repository
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket
+google_dev:
+  service: GCS
+  project: ritomania
+  credentials: <%= Rails.root.join("ritomania-service-account-key.json") %>
+  bucket: ritomania-production
+
+google:
+  service: GCS
+  project: ritomania
+  credentials: <%= ENV['GOOGLE_CREDENTIALS'].as_json %>
+  bucket: ritomania-production
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
